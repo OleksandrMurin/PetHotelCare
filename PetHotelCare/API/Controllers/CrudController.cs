@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 namespace PetHotelCare.API.Controllers
 {
     [ApiController]
-    [Authorize]
+    
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [Route(Routes.CrudRoute)]
     public abstract class CrudController<TRequest, TModel, TEntity> : ControllerBase
@@ -81,8 +81,6 @@ namespace PetHotelCare.API.Controllers
                 return NotFound();
             return entity.Adapt<TModel>();
         }
-
-        // Пагинация дописать adapt
 
         protected async Task<PaginationModel<TModel>> GetAsync(int page,
                                             Expression<Func<TEntity, bool>> predicate,

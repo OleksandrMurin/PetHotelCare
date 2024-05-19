@@ -6,8 +6,8 @@ namespace PetHotelCare.DataAccess.Entities
     public class Booking : Entity
     {
 
-        public DateTime CheckInDate { get; set; }
-        public DateTime CheckOutDate { get; set; }
+        public DateOnly CheckInDate { get; set; }
+        public DateOnly CheckOutDate { get; set; }
         public double Price { get; set; }
 
         // Внешний ключ, связывает бронирование с питомцем
@@ -16,8 +16,10 @@ namespace PetHotelCare.DataAccess.Entities
 
         public int RoomId { get; set; } // Внешний ключ на Roomd
         public virtual Room Room { get; set; }
+        public int RationId { get; set; }
+        public virtual Ration Ration { get; set; }
 
         public virtual List<PetService> PetServices { get; set; } = new List<PetService>();
-        public virtual List<Meal> Meals { get; set; } = new List<Meal>();
+        
     }
 }

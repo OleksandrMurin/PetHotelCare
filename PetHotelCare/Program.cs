@@ -5,9 +5,33 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using PetHotelCare.DataAccess;
 using PetHotelCare.DataAccess.Entities;
+using Microsoft.AspNetCore.Cors;
+using Mapster;
+using PetHotelCare.API.Requests;
+using PetHotelCare.API.Models;
+
+TypeAdapterConfig<ProductRequest, Product>.ForType()
+    .Map(dest => dest.ProductsTag, src => src.Tags.Select(x => new ProductTag { TagId = x}));
+TypeAdapterConfig<Product, ProductModel>.ForType()
+    .Map(dest => dest.Tags, src => src.ProductsTag.ToDictionary(x =>x.TagId, x => x.Tag.Name));
+
+TypeAdapterConfig<PetRequest, Pet>.ForType()
+    .Map(dest => dest.ProhibitedTags, src => src.ProhibitedTags.Select(x => new ProhibitedTag { TagId = x }));
+TypeAdapterConfig<Pet, PetModel>.ForType()
+    .Map(dest => dest.ProhibitedTags, src => src.ProhibitedTags.ToDictionary(x => x.TagId, x => x.Tag.Name));
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost3000", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000") // Укажите адрес вашего React-приложения
+              .AllowAnyHeader() 
+              .AllowAnyMethod() 
+              .AllowCredentials(); 
 
+    });
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -50,7 +74,7 @@ builder.Services.AddSwaggerGen();                       //Я не понимаю как понят
 
 var app = builder.Build();
 
-
+app.UseCors("AllowLocalhost3000");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

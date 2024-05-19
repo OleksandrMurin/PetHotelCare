@@ -5,15 +5,12 @@ namespace PetHotelCare.API.Requests
 {
     public class RoomRequest
     {
+        public string Image { get; set; }
+
         [Required]
-        public int RoomNumber { get; set; }
+        public string Number { get; set; }
+
         [Required]
-        public string RoomType { get; set; }
-        [Required]
-        public double PricePerDay { get; set; }
-        [Required]
-        public bool IsFree { get; set; }
-        [Required]
-        public int FeederId { get; set; }
+        public int RoomTypeId { get; set; }
     }
 }

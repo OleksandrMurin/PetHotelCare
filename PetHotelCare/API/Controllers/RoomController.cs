@@ -33,8 +33,8 @@ namespace PetHotelCare.API.Controllers
         {
             var availableRooms = await _context.Rooms
                 .Where(room => !room.Bookings.Any(booking =>
-                    (now >= booking.CheckInDate && now <= booking.CheckOutDate) ||     //(checkInDate >= booking.CheckInDate && checkInDate <= booking.CheckOutDate) ||
-                    (nextMounth >= booking.CheckInDate && nextMounth <= booking.CheckOutDate)))    //(checkOutDate >= booking.CheckInDate && checkOutDate <= booking.CheckOutDate)))
+                    (now >= Convert.ToDateTime(booking.CheckInDate) && now <= Convert.ToDateTime(booking.CheckOutDate)) ||     //(checkInDate >= booking.CheckInDate && checkInDate <= booking.CheckOutDate) ||
+                    (nextMounth >= Convert.ToDateTime(booking.CheckInDate) && nextMounth <= Convert.ToDateTime(booking.CheckOutDate))))    //(checkOutDate >= booking.CheckInDate && checkOutDate <= booking.CheckOutDate)))
                 .ToListAsync();
             var entities = availableRooms.Skip((page - 1) * 10)
                 .Take(10)
@@ -49,7 +49,7 @@ namespace PetHotelCare.API.Controllers
         {
             
             var enumerable = await _context.Set<Room>()
-            .Where(x => x.RoomNumber.Contains(query))
+            .Where(x => x.Number.Contains(query))
             .OrderBy(x => x.Id)
             .ToListAsync();
             var entities = enumerable.Skip((page - 1) * 10)

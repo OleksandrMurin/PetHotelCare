@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MySqlX.XDevAPI.Common;
 using PetHotelCare.API.Models;
 using PetHotelCare.API.Requests.Account;
 using PetHotelCare.DataAccess;

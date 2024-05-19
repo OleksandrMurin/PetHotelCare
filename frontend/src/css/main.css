@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: Arial, sans-serif; /* Установите шрифт по умолчанию */
+    margin: 0; /* Уберите стандартные отступы */
+    padding: 0; /* Уберите стандартные отступы */
+    background-color: #f0f0f0; /* Светлый серый фон */
+}
+
+/* Стили для всего приложения */
+#root {
+    padding: 20px; /* Отступ вокруг содержимого */
+}
+
+/* Заголовки */
+h1, h2 {
+    color: #333; /* Темный цвет для заголовков */
+}
+
+/* Параграфы */
+p {
+    margin: 10px 0; /* Отступы сверху и снизу */
+    color: #555; /* Текст средней яркости */
+}
+
+/* Поля ввода */
+input {
+    padding: 8px; /* Отступ внутри поля ввода */
+    margin: 5px 0; /* Отступы сверху и снизу */
+    border-radius: 4px; /* Закругленные углы */
+    border: 1px solid #ccc; /* Светло-серый бордюр */
+}
+
+/* Кнопки */
+button {
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    background-color: #007bff; /* Синий фон */
+    color: white; /* Белый текст */
+    border: none; /* Без бордюра */
+    border-radius: 4px; /* Закругленные углы */
+    cursor: pointer; /* Указатель при наведении */
+    margin: 5px 0; /* Отступы сверху и снизу */
+}
+
+/* Кнопки при наведении */
+button:hover {
+    background-color: #0056b3; /* Более темный синий фон при наведении */
+}
+
+/* Карточка животного */
+.animal-card {
+    background-color: white; /* Белый фон */
+    padding: 15px; /* Отступы внутри карточки */
+    border-radius: 6px; /* Закругленные углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+    margin-bottom: 20px; /* Отступ снизу */
+}

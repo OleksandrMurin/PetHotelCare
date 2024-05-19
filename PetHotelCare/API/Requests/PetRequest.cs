@@ -7,9 +7,11 @@ namespace PetHotelCare.API.Requests
         [Required]
         public string Name { get; set; } = null!;
         [Required]
-        public int Age { get; set; } 
-        public string SpecialRequirements { get; set; } = null!;
-        //[Required]
-        //public string UserId { get; set; }
+        public string UserId { get; set; } = null!;
+        public DateOnly BirthDate { get; set; }
+        public string AdditionalInfo { get; set; }
+        public string? Image { get; set; }
+        public int BreedId { get; set; }
+        public IReadOnlyCollection<int> ProhibitedTags { get; set; }
     }
 }

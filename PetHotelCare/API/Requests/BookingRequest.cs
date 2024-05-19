@@ -5,18 +5,23 @@ namespace PetHotelCare.API.Requests
 {
     public class BookingRequest
     {
-        [Required, DataType(DataType.DateTime)]
-        public DateTime CheckInDate { get; set; }
+        [Required, DataType(DataType.Date)]
+        public DateOnly CheckInDate { get; set; }
 
-        [Required, DataType(DataType.DateTime)]
-        public DateTime CheckOutDate { get; set; }
+        [Required, DataType(DataType.Date)]
+        public DateOnly CheckOutDate { get; set; }
+        
+        [Required]
+        public double Price { get; set; }
 
         [Required]
         public int PetId { get; set; }
 
         [Required]
-        public int RoomId { get; set; } 
-        public List<int> PetServicesIds { get; set; } = null!;
-        public List<MealRequest> Meals { get; set; } = null!;
+        public int RoomId { get; set; }
+
+        [Required]
+        public int RationId { get; set; }
+        public List<int>? PetServicesIds { get; set; } = null!;
     }
 }
