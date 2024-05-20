@@ -2,6 +2,7 @@
 using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PetHotelCare.API.Models;
@@ -20,6 +21,23 @@ namespace PetHotelCare.API.Controllers
         public RationController(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
         {
             _context = context;
+        }
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public override async Task<ActionResult<RationModel>> Add(RationRequest model)
+        {
+
+            var proxy = model.Adapt<Ration>();
+            await _context.AddAsync(proxy);
+            await _context.SaveChangesAsync();
+            var response = await _context.Set<Ration>()
+                .Include(x => x.RationTags)
+                .ThenInclude(x => x.Tag)
+                .FirstOrDefaultAsync(x => x.Id == proxy.Id);
+            return response.Adapt<RationModel>();
+
         }
 
         [HttpGet]

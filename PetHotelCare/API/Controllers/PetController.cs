@@ -46,13 +46,19 @@ namespace PetHotelCare.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public override async Task<ActionResult<PetModel>> Add(PetRequest model)
         {
-            var entity = model.Adapt<Pet>();
-            entity.UserId = _userManager.GetUserId(User);
-            await _context.AddAsync(entity);
 
+            var proxy = model.Adapt<Pet>();
+            proxy.UserId = _userManager.GetUserId(User)!;
+            await _context.AddAsync(proxy);
             await _context.SaveChangesAsync();
-            return entity.Adapt<PetModel>();
+            var response = await _context.Set<Pet>()
+                .Include(x => x.ProhibitedTags)
+                .ThenInclude(x => x.Tag)
+                .FirstOrDefaultAsync(x => x.Id == proxy.Id);
+            return response.Adapt<PetModel>();
+
         }
+
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]

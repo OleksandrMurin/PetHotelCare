@@ -2,6 +2,7 @@
 using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PetHotelCare.API.Models;
@@ -22,7 +23,24 @@ namespace PetHotelCare.API.Controllers
         {
             _context = context;
         }
-        
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public override async Task<ActionResult<ProductModel>> Add(ProductRequest model)
+        {
+
+            var proxy = model.Adapt<Product>();
+            await _context.AddAsync(proxy);
+            await _context.SaveChangesAsync();
+            var response = await _context.Set<Product>()
+                .Include(x => x.ProductsTag)
+                .ThenInclude(x => x.Tag)
+                .FirstOrDefaultAsync(x => x.Id == proxy.Id);
+            return response.Adapt<ProductModel>();
+
+        }
 
         [HttpGet]
         [AllowAnonymous]

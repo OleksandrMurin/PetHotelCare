@@ -35,7 +35,8 @@ namespace PetHotelCare.DataAccess
                 .HasKey(pr => new { pr.TagId, pr.ProductId });
             modelBuilder.Entity<ProhibitedTag>()
                 .HasKey(pr => new { pr.PetId, pr.TagId });
-
+            modelBuilder.Entity<RationTag>()
+                .HasKey(pr => new { pr.RationId, pr.TagId });
             // Дополнительная настройка для связей многие-ко-многим и других особенностей
             modelBuilder.Entity<ProductsInRation>()
                 .HasKey(pr => new { pr.RationId, pr.ProductId });

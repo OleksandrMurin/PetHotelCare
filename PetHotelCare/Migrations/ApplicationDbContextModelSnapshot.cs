@@ -431,6 +431,21 @@ namespace PetHotelCare.Migrations
                     b.ToTable("Rations");
                 });
 
+            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.RationTag", b =>
+                {
+                    b.Property<int>("RationId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("RationId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("RationTag");
+                });
+
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Room", b =>
                 {
                     b.Property<int>("Id")
@@ -561,21 +576,6 @@ namespace PetHotelCare.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("RationTag", b =>
-                {
-                    b.Property<int>("RationsTagId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TagsInRationId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("RationsTagId", "TagsInRationId");
-
-                    b.HasIndex("TagsInRationId");
-
-                    b.ToTable("RationTag");
                 });
 
             modelBuilder.Entity("BookingPetService", b =>
@@ -769,6 +769,25 @@ namespace PetHotelCare.Migrations
                     b.Navigation("Tag");
                 });
 
+            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.RationTag", b =>
+                {
+                    b.HasOne("PetHotelCare.DataAccess.Entities.Ration", "Ration")
+                        .WithMany("RationTags")
+                        .HasForeignKey("RationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PetHotelCare.DataAccess.Entities.Tag", "Tag")
+                        .WithMany("RationTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ration");
+
+                    b.Navigation("Tag");
+                });
+
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Room", b =>
                 {
                     b.HasOne("PetHotelCare.DataAccess.Entities.RoomType", "RoomType")
@@ -778,21 +797,6 @@ namespace PetHotelCare.Migrations
                         .IsRequired();
 
                     b.Navigation("RoomType");
-                });
-
-            modelBuilder.Entity("RationTag", b =>
-                {
-                    b.HasOne("PetHotelCare.DataAccess.Entities.Ration", null)
-                        .WithMany()
-                        .HasForeignKey("RationsTagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PetHotelCare.DataAccess.Entities.Tag", null)
-                        .WithMany()
-                        .HasForeignKey("TagsInRationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Breed", b =>
@@ -827,6 +831,8 @@ namespace PetHotelCare.Migrations
                         .IsRequired();
 
                     b.Navigation("ProductsInRations");
+
+                    b.Navigation("RationTags");
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Room", b =>
@@ -844,6 +850,8 @@ namespace PetHotelCare.Migrations
                     b.Navigation("ProductsTag");
 
                     b.Navigation("ProhibitedTags");
+
+                    b.Navigation("RationTags");
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.User", b =>
