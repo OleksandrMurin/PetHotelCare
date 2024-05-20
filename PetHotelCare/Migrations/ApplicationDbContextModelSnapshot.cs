@@ -15,7 +15,11 @@ namespace PetHotelCare.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.21");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true);
 
             modelBuilder.Entity("BookingPetService", b =>
                 {
@@ -282,10 +286,6 @@ namespace PetHotelCare.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("SpecialRequirements")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -366,6 +366,21 @@ namespace PetHotelCare.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.ProductTag", b =>
+                {
+                    b.Property<int>("TagId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("TagId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductTag");
+                });
+
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.ProductsInRation", b =>
                 {
                     b.Property<int>("RationId")
@@ -385,21 +400,6 @@ namespace PetHotelCare.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductsInRations");
-                });
-
-            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.ProductTag", b =>
-                {
-                    b.Property<int>("TagId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("TagId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductTag");
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.ProhibitedTag", b =>
@@ -712,25 +712,6 @@ namespace PetHotelCare.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.ProductsInRation", b =>
-                {
-                    b.HasOne("PetHotelCare.DataAccess.Entities.Product", "Product")
-                        .WithMany("ProductsInRations")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PetHotelCare.DataAccess.Entities.Ration", "Ration")
-                        .WithMany("ProductsInRations")
-                        .HasForeignKey("RationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("Ration");
-                });
-
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.ProductTag", b =>
                 {
                     b.HasOne("PetHotelCare.DataAccess.Entities.Product", "Product")
@@ -748,6 +729,25 @@ namespace PetHotelCare.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.ProductsInRation", b =>
+                {
+                    b.HasOne("PetHotelCare.DataAccess.Entities.Product", "Product")
+                        .WithMany("ProductsInRations")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PetHotelCare.DataAccess.Entities.Ration", "Ration")
+                        .WithMany("ProductsInRations")
+                        .HasForeignKey("RationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Ration");
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.ProhibitedTag", b =>

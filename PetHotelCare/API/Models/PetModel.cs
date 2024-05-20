@@ -14,6 +14,6 @@ namespace PetHotelCare.API.Models
         public string UserId { get; set; }
         public int BreedId { get; set; }
         public IReadOnlyDictionary<int, string> ProhibitedTags { get; set; }
-        public IReadOnlyCollection<int?> BookingIds { get; set; }
+        //public IReadOnlyCollection<int?> BookingIds { get; set; }
     }
 }
