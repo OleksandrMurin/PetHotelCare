@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,11 +21,12 @@ namespace PetHotelCare.API.Controllers
         where TEntity : Entity
     {
         private readonly DataAccess.ApplicationDbContext _context;
-        
+        private readonly IMapper _mapper;
 
-        public CrudController(DataAccess.ApplicationDbContext context)
+        public CrudController(DataAccess.ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -38,7 +40,8 @@ namespace PetHotelCare.API.Controllers
             await _context.AddAsync(entity);
 
             await _context.SaveChangesAsync();
-            return entity.Adapt<TModel>();
+
+            return _mapper.From(entity).EntityFromContext(_context).AdaptToType<TModel>();
         }
 
         

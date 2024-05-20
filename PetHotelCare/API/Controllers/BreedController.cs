@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,7 @@ namespace PetHotelCare.API.Controllers
     public class BreedController : CrudController<BreedRequest, BreedModel, Breed>
     {
         private readonly ApplicationDbContext _context;
-        public BreedController(ApplicationDbContext context) : base(context)
+        public BreedController(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
         {
             _context = context;
         }

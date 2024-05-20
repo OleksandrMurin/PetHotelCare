@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -17,7 +18,7 @@ namespace PetHotelCare.API.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<User> _userManager;
-        public PetController(ApplicationDbContext context, UserManager<User> userManager) : base(context)
+        public PetController(ApplicationDbContext context, UserManager<User> userManager, IMapper mapper) : base(context, mapper)
         {
             _context = context;
             _userManager = userManager;

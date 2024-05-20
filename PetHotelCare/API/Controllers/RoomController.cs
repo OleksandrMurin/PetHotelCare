@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace PetHotelCare.API.Controllers
         public DateTime now = DateTime.Now;
         public DateTime nextMounth = DateTime.Now.AddMonths(1);
         private readonly ApplicationDbContext _context;
-        public RoomController(ApplicationDbContext context) : base(context)
+        public RoomController(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
         {
             _context = context;
         }

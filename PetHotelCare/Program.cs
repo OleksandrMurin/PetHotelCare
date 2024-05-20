@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Cors;
 using Mapster;
 using PetHotelCare.API.Requests;
 using PetHotelCare.API.Models;
+using MapsterMapper;
+using Microsoft.Extensions.DependencyInjection;
 
 TypeAdapterConfig<ProductRequest, Product>.ForType()
     .Map(dest => dest.ProductsTag, src => src.Tags.Select(x => new ProductTag { TagId = x}));
@@ -21,6 +23,10 @@ TypeAdapterConfig<Pet, PetModel>.ForType()
     .Map(dest => dest.ProhibitedTags, src => src.ProhibitedTags.ToDictionary(x => x.TagId, x => x.Tag.Name));
 
 var builder = WebApplication.CreateBuilder(args);
+var config = TypeAdapterConfig.GlobalSettings;
+config.Scan(typeof(Program).Assembly);
+builder.Services.AddSingleton(config);
+builder.Services.AddScoped<IMapper, ServiceMapper>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhost3000", policy =>
@@ -32,6 +38,7 @@ builder.Services.AddCors(options =>
 
     });
 });
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -54,7 +61,10 @@ builder.Services.AddIdentity<User, IdentityRole>(SetupAction)
 builder.Services.AddAuthentication()
         .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
 ;
-
+builder.Services.AddControllers();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(connectionString));
+builder.Services.AddMapster();
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Events.OnRedirectToLogin = context =>
