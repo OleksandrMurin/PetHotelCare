@@ -22,6 +22,8 @@ TypeAdapterConfig<PetRequest, Pet>.ForType()
 TypeAdapterConfig<Pet, PetModel>.ForType()
     .Map(dest => dest.ProhibitedTags, src => src.ProhibitedTags.ToDictionary(x => x.TagId, x => x.Tag.Name));
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 var config = TypeAdapterConfig.GlobalSettings;
 config.Scan(typeof(Program).Assembly);

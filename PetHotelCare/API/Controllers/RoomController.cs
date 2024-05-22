@@ -46,7 +46,7 @@ namespace PetHotelCare.API.Controllers
         [HttpGet]
         [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<PaginationModel<RoomModel>> GetAsync(int page, string query)
+        public async Task<PaginationModel<RoomModel>> GetAsync(int page = 1, string? query = "")
         {
             
             var enumerable = await _context.Set<Room>()

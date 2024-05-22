@@ -3,48 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\models\\rationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\models\\rationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\requests\\rationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\requests\\rationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\rationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\rationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240520175819_RationTag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PetHotelCare\\Migrations\\20240520175819_RationTag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\diet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\diet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\ration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\ration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\rationtag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\rationtag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240520175520_RationTag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PetHotelCare\\Migrations\\20240520175520_RationTag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\prohibitedtag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\prohibitedtag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\producttag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\producttag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\productsinration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,120 +43,12 @@
       "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\petcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\crudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\crudcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\models\\petmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\models\\petmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\petservicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\petservicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\tagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\tagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\roomtypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\roomtypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\pettypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\pettypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\dietcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\dietcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\breedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\breedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\pethotelcare.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\pethotelcare.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\requests\\petrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\requests\\petrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\pet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\pet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\utils\\constants\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\utils\\constants\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\utils\\constants\\errors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\utils\\constants\\errors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\models\\petservicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\models\\petservicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\models\\pettypemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\models\\pettypemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\requests\\userrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\requests\\userrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\diet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\diet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\requests\\productrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\requests\\productrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\models\\productsinrationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\models\\productsinrationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\api\\requests\\rationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\api\\requests\\rationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\dataaccess\\entities\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -231,20 +107,12 @@
       "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\dataaccess\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\migrations\\20240519182149_change1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\migrations\\20240519182149_change1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\migrations\\20240518231316_addproducttagtable1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\migrations\\20240518231316_addproducttagtable1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\migrations\\20240518230626_addproducttagtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\migrations\\20240518230626_addproducttagtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\pethotelcare\\pethotelcare\\migrations\\20240519213840_changepettable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C176B499-1108-4361-BD4D-A7270E780325}|PetHotelCare\\PetHotelCare.csproj|solutionrelative:pethotelcare\\migrations\\20240519213840_changepettable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -254,17 +122,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 9,
               "Title": "PetController.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\PetController.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\PetController.cs",
               "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\PetController.cs",
               "RelativeToolTip": "PetHotelCare\\API\\Controllers\\PetController.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAuwDsAAAAJAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAIwDsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-18T21:25:07.648Z",
               "IsPinned": true,
@@ -272,13 +140,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 8,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\ProductController.cs",
               "RelativeToolTip": "PetHotelCare\\API\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAA4wCUAAAArAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAcwCMAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-18T22:01:05.41Z",
               "IsPinned": true,
@@ -286,67 +154,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductModel.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\ProductModel.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\ProductModel.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\ProductModel.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Models\\ProductModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T18:00:01.422Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RationModel.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\RationModel.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\RationModel.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\RationModel.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Models\\RationModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T21:37:01.237Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "20240520175819_RationTag.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240520175819_RationTag.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\Migrations\\20240520175819_RationTag.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240520175819_RationTag.cs",
-              "RelativeToolTip": "PetHotelCare\\Migrations\\20240520175819_RationTag.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T17:58:19.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\ApplicationDbContext.cs",
               "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\ApplicationDbContext.cs",
               "RelativeToolTip": "PetHotelCare\\DataAccess\\ApplicationDbContext.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAAwCYAAAA9AAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwBQAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T17:57:18.314Z",
+              "WhenOpened": "2024-05-21T23:23:21.46Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Tag.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Tag.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\Tag.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Tag.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\Tag.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA/AAAA",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\Product.cs",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Product.cs",
+              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T17:56:34.456Z",
+              "WhenOpened": "2024-05-21T23:23:10.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Diet.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Diet.cs",
+              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\Diet.cs",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Diet.cs",
+              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\Diet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T22:52:12.524Z",
               "EditorCaption": ""
             },
             {
@@ -357,48 +199,9 @@
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\RationController.cs",
               "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\RationController.cs",
               "RelativeToolTip": "PetHotelCare\\API\\Controllers\\RationController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAtwCMAAAAqAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAIwFkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T22:11:42.207Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "20240520175520_RationTag.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240520175520_RationTag.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\Migrations\\20240520175520_RationTag.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240520175520_RationTag.cs",
-              "RelativeToolTip": "PetHotelCare\\Migrations\\20240520175520_RationTag.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T17:55:20.761Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ProhibitedTag.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\ProhibitedTag.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\ProhibitedTag.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\ProhibitedTag.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\ProhibitedTag.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T17:54:11.656Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RationTag.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\RationTag.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\RationTag.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\RationTag.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\RationTag.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T17:49:04.013Z",
+              "WhenOpened": "2024-05-21T22:41:55.436Z",
               "EditorCaption": ""
             },
             {
@@ -409,377 +212,27 @@
               "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\Ration.cs",
               "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Ration.cs",
               "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\Ration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA/AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T17:48:03.516Z",
+              "WhenOpened": "2024-05-21T22:17:35.909Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CrudController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\CrudController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\CrudController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\CrudController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\CrudController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T14:42:00.142Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "PetModel.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\PetModel.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\PetModel.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\PetModel.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Models\\PetModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T22:32:35.751Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "BookingController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\BookingController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\BookingController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\BookingController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\BookingController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-08T18:10:20.746Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ProductsInRation.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\ProductsInRation.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\ProductsInRation.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\ProductsInRation.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\ProductsInRation.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T22:19:53.362Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ProductTag.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\ProductTag.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\ProductTag.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\ProductTag.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\ProductTag.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T23:01:56.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\appsettings.json",
-              "RelativeDocumentMoniker": "PetHotelCare\\appsettings.json",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\appsettings.json",
-              "RelativeToolTip": "PetHotelCare\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-19T18:14:04.5Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Program.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\Program.cs",
               "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Program.cs",
               "RelativeToolTip": "PetHotelCare\\Program.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAWwEIAAAAbAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-28T17:00:06.227Z"
+              "WhenOpened": "2024-04-28T17:00:06.227Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "BreedController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\BreedController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\BreedController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\BreedController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\BreedController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAtwBMAAABkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T21:26:27.572Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "DietController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\DietController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\DietController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\DietController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\DietController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAtwBMAAABjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T21:58:44.904Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "PetTypeController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\PetTypeController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\PetTypeController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\PetTypeController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\PetTypeController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAtwBMAAABmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:41:45.746Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "RoomController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\RoomController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\RoomController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\RoomController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\RoomController.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAtwBkAAABjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T23:00:55.461Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "PetServiceController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\PetServiceController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\PetServiceController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\PetServiceController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\PetServiceController.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAtwBQAAABpAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T21:25:10.633Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "TagController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\TagController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\TagController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\TagController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\TagController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAtwBMAAABiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T22:26:46.163Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "RoomTypeController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\RoomTypeController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\RoomTypeController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\RoomTypeController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\RoomTypeController.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAtwBMAAABnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T21:51:16.736Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "PetTypeModel.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\PetTypeModel.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\PetTypeModel.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\PetTypeModel.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Models\\PetTypeModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T20:56:25.21Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Pet.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Pet.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\Pet.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Pet.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\Pet.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T18:25:19.767Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "PetRequest.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\PetRequest.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Requests\\PetRequest.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\PetRequest.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Requests\\PetRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T21:01:20.637Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "UserModel.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\UserModel.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\UserModel.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\UserModel.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Models\\UserModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T20:47:21.886Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "PetServiceModel.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\PetServiceModel.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\PetServiceModel.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\PetServiceModel.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Models\\PetServiceModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T20:56:22.955Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "PetHotelCare.csproj",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\PetHotelCare.csproj",
-              "RelativeDocumentMoniker": "PetHotelCare\\PetHotelCare.csproj",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\PetHotelCare.csproj",
-              "RelativeToolTip": "PetHotelCare\\PetHotelCare.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-18T15:19:07.805Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Room.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Room.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\Room.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Room.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\Room.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T23:06:30.175Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "20240519213840_ChangePetTable.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240519213840_ChangePetTable.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\Migrations\\20240519213840_ChangePetTable.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240519213840_ChangePetTable.cs",
-              "RelativeToolTip": "PetHotelCare\\Migrations\\20240519213840_ChangePetTable.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T21:38:40.313Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Roles.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Utils\\Constants\\Roles.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\Utils\\Constants\\Roles.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Utils\\Constants\\Roles.cs",
-              "RelativeToolTip": "PetHotelCare\\Utils\\Constants\\Roles.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T18:13:59.193Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Errors.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Utils\\Constants\\Errors.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\Utils\\Constants\\Errors.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Utils\\Constants\\Errors.cs",
-              "RelativeToolTip": "PetHotelCare\\Utils\\Constants\\Errors.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T21:02:19.688Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\User.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T19:09:48.544Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Diet.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Diet.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\Diet.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Diet.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\Diet.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T18:17:01.239Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "UserRequest.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\UserRequest.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Requests\\UserRequest.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\UserRequest.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Requests\\UserRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T18:17:36.79Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "20240519182149_Change1.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240519182149_Change1.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\Migrations\\20240519182149_Change1.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240519182149_Change1.cs",
-              "RelativeToolTip": "PetHotelCare\\Migrations\\20240519182149_Change1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T19:04:32.115Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Product.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\Product.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Product.cs",
-              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\Product.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T22:19:41.611Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "PetHotelCare\\API\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "PetHotelCare\\API\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAawCAAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T15:26:33.552Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 1,
               "Title": "RationRequest.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\RationRequest.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Requests\\RationRequest.cs",
@@ -787,11 +240,25 @@
               "RelativeToolTip": "PetHotelCare\\API\\Requests\\RationRequest.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T21:01:49.998Z"
+              "WhenOpened": "2024-05-18T21:01:49.998Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 7,
+              "Title": "ProductsInRation.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\ProductsInRation.cs",
+              "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\ProductsInRation.cs",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\ProductsInRation.cs",
+              "RelativeToolTip": "PetHotelCare\\DataAccess\\Entities\\ProductsInRation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T22:19:53.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ProductRequest.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\ProductRequest.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Requests\\ProductRequest.cs",
@@ -803,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 11,
               "Title": "ProductsInRationModel.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\ProductsInRationModel.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\ProductsInRationModel.cs",
@@ -815,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 13,
               "Title": "PetService.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\PetService.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\PetService.cs",
@@ -827,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 14,
               "Title": "PetType.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\PetType.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\PetType.cs",
@@ -839,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 26,
               "Title": "20240518231316_AddProductTagTable1.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240518231316_AddProductTagTable1.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\Migrations\\20240518231316_AddProductTagTable1.cs",
@@ -851,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 12,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\ErrorViewModel.cs",
@@ -863,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 27,
               "Title": "20240518230626_AddProductTagTable.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240518230626_AddProductTagTable.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\Migrations\\20240518230626_AddProductTagTable.cs",
@@ -875,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 15,
               "Title": "PetTypeRequest.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\PetTypeRequest.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Requests\\PetTypeRequest.cs",
@@ -887,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 20,
               "Title": "DietRequest.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\DietRequest.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Requests\\DietRequest.cs",
@@ -899,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 16,
               "Title": "RoomRequest.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\RoomRequest.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Requests\\RoomRequest.cs",
@@ -911,7 +378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 18,
               "Title": "RoomModel.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\RoomModel.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\RoomModel.cs",
@@ -923,7 +390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 17,
               "Title": "RoomTypeModel.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\RoomTypeModel.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\RoomTypeModel.cs",
@@ -935,7 +402,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 19,
               "Title": "20240518182714_AddNewEntities.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\Migrations\\20240518182714_AddNewEntities.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\Migrations\\20240518182714_AddNewEntities.cs",
@@ -947,7 +414,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 22,
               "Title": "BreedRequest.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\BreedRequest.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Requests\\BreedRequest.cs",
@@ -959,7 +426,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 21,
               "Title": "BookingRequest.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Requests\\BookingRequest.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Requests\\BookingRequest.cs",
@@ -971,7 +438,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 24,
               "Title": "DietModel.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\DietModel.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\DietModel.cs",
@@ -983,7 +450,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 23,
               "Title": "BookingModel.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\API\\Models\\BookingModel.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\API\\Models\\BookingModel.cs",
@@ -995,7 +462,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 25,
               "Title": "Booking.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\\source\\repos\\PetHotelCare\\PetHotelCare\\DataAccess\\Entities\\Booking.cs",
               "RelativeDocumentMoniker": "PetHotelCare\\DataAccess\\Entities\\Booking.cs",

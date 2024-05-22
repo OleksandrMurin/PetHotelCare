@@ -25,7 +25,7 @@ namespace PetHotelCare.API.Controllers
         [HttpGet]
         [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<PaginationModel<PetTypeModel>> GetAsync(int page, string query)
+        public async Task<PaginationModel<PetTypeModel>> GetAsync(int page = 1, string? query = "")
         {
             var enumerable = await _context.Set<PetType>()
                 .Where(x => x.Name.Contains(query))
