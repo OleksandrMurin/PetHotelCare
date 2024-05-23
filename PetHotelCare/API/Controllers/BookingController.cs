@@ -27,7 +27,7 @@ namespace PetHotelCare.API.Controllers
             _userManager = userManager;
             _configuration = configuration;
         }
-        
+
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -37,23 +37,24 @@ namespace PetHotelCare.API.Controllers
         {
 
             var booking = request.Adapt<Booking>();
-            booking.PetServices = _context.Services.Where(x => request.PetServicesIds.Contains(x.Id)).ToList();
-            var room = await _context.Rooms.FindAsync(booking.RoomId);
-            
-            var rationReq = request.Ration;
-            var ration = rationReq.Adapt<Ration>();
-            _context.Rations.Add(ration);
+            booking.BookingPetServices = request.PetServicesIds.Select(x => new BookingPetService { PetServiceId = x }).ToList();
+
+            booking.Ration.ProductsInRations = request.Ration.ProductsInRation.Select(x => new ProductsInRation { ProductId = x.ProductId }).ToList();
+
+            //var rationReq = request.Ration;
+
+            //_context.Rations.Add(ration);
 
             booking.Price = CalculateTotalPrice(request);// ПРОВЕРИТЬ ЭТО
             if (booking.Price == -1) return NotFound();
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
             var response = await _context.Set<Booking>()
-                .Include(x => x.PetServices)
-                .ThenInclude(x => x.Id)
+                .Include(x => x.BookingPetServices)
+                .ThenInclude(x => x.PetService)
                 .FirstOrDefaultAsync(x => x.Id == booking.Id);
-
-            return CreatedAtAction(nameof(CreateBooking), response);
+            var result = response.Adapt<BookingModel>();
+            return CreatedAtAction(nameof(CreateBooking), result);
         }
 
         [HttpGet]
@@ -101,23 +102,19 @@ namespace PetHotelCare.API.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<RationModel?> CreateRation(int petId, double weight, string activity)
+        public async Task<ActionResult<RationModel>> CreateRation(int petId, double weight, string activity)
         {
             // Получение данных о питомце
             var pet = await _context.Pets.Include(p => p.Breed).Include(p => p.ProhibitedTags).FirstOrDefaultAsync(p => p.Id == petId);
-            if (pet == null) return null;
+            if (pet is null) return NotFound(nameof(pet));
 
             // Вычисление возраста питомца
-            var age = 0;
-            while (DateOnly.FromDateTime(DateTime.Now) > pet.BirthDate)
-            {
-                age++;
-                pet.BirthDate.AddYears(1);
-            }
+            var age = DateOnly.FromDateTime(DateTime.UtcNow).Year - pet.BirthDate.Year;
+
 
             // Получение диеты
             var diet = await _context.Diets.FirstOrDefaultAsync(d => d.Activity == activity && d.BreedId == pet.BreedId && d.MinAge <= age && d.MaxAge >= age);
-            if (diet == null) return null;
+            if (diet is null) return NotFound(nameof(diet));
 
             // Расчет суточной потребности
             var dailyCalories = diet.CaloricValue * weight;
@@ -138,7 +135,7 @@ namespace PetHotelCare.API.Controllers
             var optimalProducts = CalculateOptimalRation(dailyCalories, dailyProteins, dailyFats, dailyCarbs, products);
             if (optimalProducts is null)
             {
-                return null;
+                return NotFound(nameof(optimalProducts));
             }
             RationModel rationModel = new (){ Price = 0 };
             //Создание рациона
@@ -224,7 +221,7 @@ namespace PetHotelCare.API.Controllers
                 ProductId = p.Id,
                 TotalWeight = var.SolutionValue(),
                 TotalPrice = var.SolutionValue() * p.PricePer100g
-            }).ToArray();
+            }).Where(x => x.TotalWeight > 0).ToArray();
 
             return optimalProducts;
         }
@@ -242,7 +239,7 @@ namespace PetHotelCare.API.Controllers
             double servicesTotal = 0;
             if (request.PetServicesIds.Count > 0)
             {
-                servicesTotal = _context.Services
+                servicesTotal = _context.PetServices
                     .Where(service => request.PetServicesIds.Contains(service.Id))
                     .Sum(service => service.Price);
             }

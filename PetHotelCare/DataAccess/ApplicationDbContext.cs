@@ -26,7 +26,8 @@ namespace PetHotelCare.DataAccess
         public DbSet<Pet> Pets { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Room> Rooms { get; set; }
-        public DbSet<PetService> Services { get; set; }
+        public DbSet<BookingPetService> BookingPetServices { get; set; }
+        public DbSet<PetService> PetServices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +36,8 @@ namespace PetHotelCare.DataAccess
                 .HasKey(pr => new { pr.TagId, pr.ProductId });
             modelBuilder.Entity<ProhibitedTag>()
                 .HasKey(pr => new { pr.PetId, pr.TagId });
+            modelBuilder.Entity<BookingPetService>()
+                .HasKey(pr => new { pr.BookingId, pr.PetServiceId });
             // Дополнительная настройка для связей многие-ко-многим и других особенностей
             modelBuilder.Entity<ProductsInRation>()
                 .HasKey(pr => new { pr.RationId, pr.ProductId });

@@ -19,7 +19,7 @@ namespace PetHotelCare.DataAccess.Entities
         public int RationId { get; set; }
         public virtual Ration Ration { get; set; }
 
-        public virtual List<PetService> PetServices { get; set; } = new List<PetService>();
+        public virtual List<BookingPetService> BookingPetServices { get; set; } 
         
     }
 }

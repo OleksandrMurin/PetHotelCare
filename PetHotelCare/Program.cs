@@ -23,14 +23,13 @@ TypeAdapterConfig<PetRequest, Pet>.ForType()
 TypeAdapterConfig<Pet, PetModel>.ForType()
     .Map(dest => dest.ProhibitedTags, src => src.ProhibitedTags.ToDictionary(x => x.TagId, x => x.Tag.Name));
 
+
+
+TypeAdapterConfig<BookingRequest, Booking>.ForType()
+    .Map(dest => dest.BookingPetServices, src => src.PetServicesIds.Select(x => new BookingPetService { PetServiceId = x }));
 TypeAdapterConfig<Booking, BookingModel>.ForType()
-    .Map(dest => dest.PetServiceIds, src => src.PetServices.Select(x => x.Id));
-//TypeAdapterConfig<RationRequest, Ration>.ForType()
-//    .Map(dest => dest.ProductsInRations, src => src.ProductsInRation
-//    .Select(x => new ProductsInRation { x => x.RationId, x => x.ProductId, x => x.Weight, x => x.Price }));//хз шо писать в селекте
-//TypeAdapterConfig<Ration, RationModel>.ForType()
-//    .Map(dest => dest.ProductsInRation, src => src.ProductsInRations
-//    .ToList({ x => x.RationId; }));
+    .Map(dest => dest.PetServices, src => src.BookingPetServices.ToDictionary(x => x.PetServiceId, x => x.PetService.Name));
+
 
 
 

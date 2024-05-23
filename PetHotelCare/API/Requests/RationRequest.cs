@@ -6,6 +6,6 @@ namespace PetHotelCare.API.Requests
     public class RationRequest
     {
         public double Price { get; set; }
-        public List<ProductsInRationModel> ProductInRation { get; set; }
+        public List<ProductsInRationModel> ProductsInRation { get; set; }
     }
 }

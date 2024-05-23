@@ -8,6 +8,6 @@ namespace PetHotelCare.API.Models
         
         public int Id { get; set; }
         public double Price { get; set; }
-        public List<ProductsInRationModel> ProductInRation { get; set; }
+        public List<ProductsInRationModel> ProductInRation { get; set; } = new();
     }
 }

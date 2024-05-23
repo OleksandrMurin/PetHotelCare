@@ -10,8 +10,8 @@ namespace PetHotelCare.DataAccess.Entities
         public string Description { get; set; } 
 
         [Required]
-        public double Price { get; set; } 
+        public double Price { get; set; }
 
-        public virtual List<Booking> Bookings { get; set; }
+        public virtual List<BookingPetService> BookingPetServices { get; set; }
     }
 }

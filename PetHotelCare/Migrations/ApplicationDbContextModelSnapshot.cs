@@ -21,21 +21,6 @@ namespace PetHotelCare.Migrations
                 .HasAnnotation("Proxies:CheckEquality", false)
                 .HasAnnotation("Proxies:LazyLoading", true);
 
-            modelBuilder.Entity("BookingPetService", b =>
-                {
-                    b.Property<int>("BookingsId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PetServicesId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("BookingsId", "PetServicesId");
-
-                    b.HasIndex("PetServicesId");
-
-                    b.ToTable("BookingPetService");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -200,6 +185,21 @@ namespace PetHotelCare.Migrations
                     b.ToTable("Bookings");
                 });
 
+            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.BookingPetService", b =>
+                {
+                    b.Property<int>("BookingId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PetServiceId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("BookingId", "PetServiceId");
+
+                    b.HasIndex("PetServiceId");
+
+                    b.ToTable("BookingPetServices");
+                });
+
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Breed", b =>
                 {
                     b.Property<int>("Id")
@@ -318,7 +318,7 @@ namespace PetHotelCare.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Services");
+                    b.ToTable("PetServices");
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.PetType", b =>
@@ -560,21 +560,6 @@ namespace PetHotelCare.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("BookingPetService", b =>
-                {
-                    b.HasOne("PetHotelCare.DataAccess.Entities.Booking", null)
-                        .WithMany()
-                        .HasForeignKey("BookingsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PetHotelCare.DataAccess.Entities.PetService", null)
-                        .WithMany()
-                        .HasForeignKey("PetServicesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -651,6 +636,25 @@ namespace PetHotelCare.Migrations
                     b.Navigation("Ration");
 
                     b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.BookingPetService", b =>
+                {
+                    b.HasOne("PetHotelCare.DataAccess.Entities.Booking", "Booking")
+                        .WithMany("BookingPetServices")
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PetHotelCare.DataAccess.Entities.PetService", "PetService")
+                        .WithMany("BookingPetServices")
+                        .HasForeignKey("PetServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
+
+                    b.Navigation("PetService");
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Breed", b =>
@@ -762,6 +766,11 @@ namespace PetHotelCare.Migrations
                     b.Navigation("RoomType");
                 });
 
+            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Booking", b =>
+                {
+                    b.Navigation("BookingPetServices");
+                });
+
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Breed", b =>
                 {
                     b.Navigation("Diets");
@@ -774,6 +783,11 @@ namespace PetHotelCare.Migrations
                     b.Navigation("Bookings");
 
                     b.Navigation("ProhibitedTags");
+                });
+
+            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.PetService", b =>
+                {
+                    b.Navigation("BookingPetServices");
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.PetType", b =>
