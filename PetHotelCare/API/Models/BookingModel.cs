@@ -11,7 +11,7 @@ namespace PetHotelCare.API.Models
         public int PetId { get; set; }
         public int RoomId { get; set; }
         public int RationId { get; set; }
-        public List<PetServiceModel>? PetServices { get; set; }
+        public List<int>? PetServiceIds { get; set; }
 
     }
 }

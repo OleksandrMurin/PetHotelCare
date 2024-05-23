@@ -389,11 +389,8 @@ namespace PetHotelCare.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Weight")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Weight")
+                        .HasColumnType("REAL");
 
                     b.HasKey("RationId", "ProductId");
 
@@ -423,8 +420,8 @@ namespace PetHotelCare.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Price")
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
@@ -772,7 +769,7 @@ namespace PetHotelCare.Migrations
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.RationTag", b =>
                 {
                     b.HasOne("PetHotelCare.DataAccess.Entities.Ration", "Ration")
-                        .WithMany("RationTags")
+                        .WithMany()
                         .HasForeignKey("RationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -831,8 +828,6 @@ namespace PetHotelCare.Migrations
                         .IsRequired();
 
                     b.Navigation("ProductsInRations");
-
-                    b.Navigation("RationTags");
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Room", b =>

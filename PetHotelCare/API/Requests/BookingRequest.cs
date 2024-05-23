@@ -21,7 +21,7 @@ namespace PetHotelCare.API.Requests
         public int RoomId { get; set; }
 
         [Required]
-        public int RationId { get; set; }
+        public RationRequest Ration{ get; set; }
         public List<int>? PetServicesIds { get; set; } = null!;
     }
 }

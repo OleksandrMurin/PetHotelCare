@@ -1,4 +1,5 @@
-﻿using Mapster;
+﻿using Google.OrTools.LinearSolver;
+using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,31 +27,31 @@ namespace PetHotelCare.API.Controllers
             _userManager = userManager;
             _configuration = configuration;
         }
+        
 
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> CreateBooking([FromBody] BookingRequest request)
+        {
 
-        //[HttpPost]
-        //[ProducesResponseType(StatusCodes.Status201Created)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //public async Task<IActionResult> CreateBooking([FromBody] BookingRequest request)
-        //{
+            var booking = request.Adapt<Booking>();
+            booking.PetServices = _context.Services.Where(x => request.PetServicesIds.Contains(x.Id)).ToList();
+            var room = await _context.Rooms.FindAsync(booking.RoomId);
+            
+            var rationReq = request.Ration;
+            var ration = rationReq.Adapt<Ration>();
+            _context.Rations.Add(ration);
 
-        //    var booking = request.Adapt<Booking>();
-        //    booking.PetServices = _context.PetServices.Where(x => request.PetServicesIds.Contains(x.Id)).ToList();
-        //    var room = await _context.Rooms.FindAsync(booking.RoomId);
-        //    if (room != null)
-        //    {
-        //        room.IsFree = false;
-        //    }
-        //    _context.Rooms.Update(room);
-        //    booking.Price = CalculateTotalPrice(request);// ПРОВЕРИТЬ ЭТО
-        //    if (booking.Price == -1) return NotFound();
-        //    _context.Bookings.Add(booking);
-        //    await _context.SaveChangesAsync();
-        //    var model = booking.Adapt<BookingModel>();
-
-        //    return CreatedAtAction(nameof(CreateBooking), model);
-        //}
+            booking.Price = CalculateTotalPrice(request);// ПРОВЕРИТЬ ЭТО
+            if (booking.Price == -1) return NotFound();
+            _context.Bookings.Add(booking);
+            await _context.SaveChangesAsync();
+            var model = booking.Adapt<BookingModel>();
+            
+            return CreatedAtAction(nameof(CreateBooking), model);
+        }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -68,26 +69,21 @@ namespace PetHotelCare.API.Controllers
             return new PaginationModel<BookingModel>(models, entities.Count());
         }
 
-        //[HttpDelete]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //public async Task<IActionResult> DeleteBooking(int bookingId) //ПО ИДЕЕ ПРАВИЛЬНО
-        //{
-        //    var booking = await _context.FindAsync<Booking>(bookingId);
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteBooking(int bookingId) //ПО ИДЕЕ ПРАВИЛЬНО
+        {
+            var booking = await _context.FindAsync<Booking>(bookingId);
 
-        //    if (booking == null)
-        //        return NotFound();
-        //    var room = await _context.Rooms.FindAsync(booking.RoomId);
-        //    if (room != null)
-        //    {
-        //        room.IsFree = true;
-        //    }
-        //    _context.Remove(booking);
-        //    await _context.SaveChangesAsync();
+            if (booking == null)
+                return NotFound();
+            _context.Remove(booking);
+            await _context.SaveChangesAsync();
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
 
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -98,46 +94,162 @@ namespace PetHotelCare.API.Controllers
             return booking?.Adapt<BookingModel>();
         }
 
-        //private double CalculateTotalPrice(BookingRequest request)
-        //{
-        //    double roomTotal = 0;
-        //    TimeSpan stayDuration = request.CheckOutDate - request.CheckInDate;
-        //    int numberOfDays = stayDuration.Days;
+        [HttpPost("CreateRation")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<RationModel?> CreateRation(int petId, double weight, string activity)
+        {
+            // Получение данных о питомце
+            var pet = await _context.Pets.Include(p => p.Breed).Include(p => p.ProhibitedTags).FirstOrDefaultAsync(p => p.Id == petId);
+            if (pet == null) return null;
 
-        //    var room = _context.Rooms
-        //        .FirstOrDefault(room => room.Id == request.RoomId);
-        //    if (room is null)
-        //    {
-        //        return /*NotFound()*/ -1;
-        //    }
-        //    roomTotal = numberOfDays * room.PricePerDay;
+            // Вычисление возраста питомца
+            var age = 0;
+            while (DateOnly.FromDateTime(DateTime.Now) > pet.BirthDate)
+            {
+                age++;
+                pet.BirthDate.AddYears(1);
+            }
 
-        //    double servicesTotal = 0;
-        //    if (request.PetServicesIds.Count > 0)
-        //    {
-        //        servicesTotal = _context.PetServices
-        //            .Where(service => request.PetServicesIds.Contains(service.Id))
-        //            .Sum(service => service.Price);
-        //    }
+            // Получение диеты
+            var diet = await _context.Diets.FirstOrDefaultAsync(d => d.Activity == activity && d.BreedId == pet.BreedId && d.MinAge <= age && d.MaxAge >= age);
+            if (diet == null) return null;
 
-        //    double mealsTotal = 0;
-        //    if (request.Meals.Count > 0)
-        //    {
-        //        if (request.Meals.Any(x => _context.FoodTypes.Find(x.FoodTypeId) == null)) return -1;
-        //        mealsTotal = request.Meals.Sum(meal =>
-        //        {
+            // Расчет суточной потребности
+            var dailyCalories = diet.CaloricValue * weight;
+            var dailyProteins = diet.ProtsContent * weight;
+            var dailyFats = diet.FatsContent * weight;
+            var dailyCarbs = diet.CarbohydratesContent * weight;
+            int[] tags = { 1, 2, 3 };// DONT FORGET TO ADD 
 
-        //            var foodType = _context.FoodTypes
-        //                .FirstOrDefault(foodType => foodType.Id == meal.FoodTypeId);
-
-        //            var totalFoodPrice = (meal.QuantityInGrams / 100) * foodType!.PricePer100Grams;
-        //            return totalFoodPrice;
-        //        });
-        //    }
+            // Получение списка разрешенных продуктов
+            var prohibitedTagIds = pet.ProhibitedTags.Select(pt => pt.TagId).ToList();
+            var products = await _context.Products
+                .Include(p => p.ProductsTag)
+                .Where(p => !p.ProductsTag.Any(t => prohibitedTagIds.Contains(t.TagId)))
+                .ToListAsync();
 
 
-        //    double totalPrice = roomTotal + servicesTotal + mealsTotal;
-        //    return totalPrice;
-        //}
+            // Выбираем оптимальные продукты, считая их вес и цену. Так же в методе добавляем записи в связную таблицу ПродуктыВРационе
+            var optimalProducts = CalculateOptimalRation(dailyCalories, dailyProteins, dailyFats, dailyCarbs, products);
+            if (optimalProducts is null)
+            {
+                return null;
+            }
+            RationModel rationModel = new (){ Price = 0 };
+            //Создание рациона
+
+            foreach(var product in optimalProducts)
+            {
+                rationModel.Price += product.TotalPrice;
+                int prodId = product.ProductId;
+                double prodWeight = product.TotalWeight;
+                ProductsInRationModel prodInRat = new()
+                {
+                    RationId = rationModel.Id,
+                    ProductId = prodId,
+                    Weight = prodWeight
+                };
+                rationModel.ProductInRation.Add(prodInRat);
+            }
+            return rationModel;
+        }
+
+        public class OptimalProduct
+        {
+            public int ProductId { get; set; }
+            public double TotalWeight { get; set; }
+            public double TotalPrice { get; set; }
+        }
+
+        private OptimalProduct[]? CalculateOptimalRation(double dailyCalories, double dailyProteins, double dailyFats, double dailyCarbs, List<Product> products)
+        {
+            var solver = Solver.CreateSolver("GLOP");
+
+            // Переменные для каждого продукта
+            var productVars = products.Select(p => solver.MakeNumVar(0.0, double.PositiveInfinity, p.Name)).ToArray();
+
+            // Ограничение по калориям
+            var calorieConstraint = solver.MakeConstraint(dailyCalories, double.PositiveInfinity, "CalorieConstraint");
+            for (int i = 0; i < products.Count; i++)
+            {
+                calorieConstraint.SetCoefficient(productVars[i], products[i].CaloricValue);
+            }
+
+            // Ограничение по белкам
+            var proteinConstraint = solver.MakeConstraint(dailyProteins, double.PositiveInfinity, "ProteinConstraint");
+            for (int i = 0; i < products.Count; i++)
+            {
+                proteinConstraint.SetCoefficient(productVars[i], products[i].ProtsContent);
+            }
+
+            // Ограничение по жирам
+            var fatConstraint = solver.MakeConstraint(dailyFats, double.PositiveInfinity, "FatConstraint");
+            for (int i = 0; i < products.Count; i++)
+            {
+                fatConstraint.SetCoefficient(productVars[i], products[i].FatsContent);
+            }
+
+            // Ограничение по углеводам
+            var carbConstraint = solver.MakeConstraint(dailyCarbs, double.PositiveInfinity, "CarbConstraint");
+            for (int i = 0; i < products.Count; i++)
+            {
+                carbConstraint.SetCoefficient(productVars[i], products[i].CarbohydratesContent);
+            }
+
+
+            // Целевая функция (минимизация стоимости)
+            var objective = solver.Objective();
+            for (int i = 0; i < products.Count; i++)
+            {
+                objective.SetCoefficient(productVars[i], products[i].PricePer100g);
+            }
+            objective.SetMinimization();
+
+            // Решение задачи
+            var resultStatus = solver.Solve();
+
+            if (resultStatus != Solver.ResultStatus.OPTIMAL)
+            {
+                return null;
+            }
+
+            // Возвращаем результат
+            var optimalProducts = products.Zip(productVars, (p, var) => new OptimalProduct
+            {
+                ProductId = p.Id,
+                TotalWeight = var.SolutionValue(),
+                TotalPrice = var.SolutionValue() * p.PricePer100g
+            }).ToArray();
+
+            return optimalProducts;
+        }
+        private double CalculateTotalPrice(BookingRequest request)
+        {
+            double roomTotal = 0;
+            int stayDuration = request.CheckOutDate.DayNumber - request.CheckInDate.DayNumber;
+
+            var room = _context.Rooms
+                .Include(room => room.RoomType)
+                .FirstOrDefault(room => room.Id == request.RoomId);
+
+            roomTotal = stayDuration * room.RoomType.PricePerDay;
+
+            double servicesTotal = 0;
+            if (request.PetServicesIds.Count > 0)
+            {
+                servicesTotal = _context.Services
+                    .Where(service => request.PetServicesIds.Contains(service.Id))
+                    .Sum(service => service.Price);
+            }
+
+            var rationReq = request.Ration;
+            var ration = rationReq.Adapt<Ration>();
+            
+
+            double totalPrice = roomTotal + servicesTotal + ration.Price;
+            return totalPrice;
+        }
     }
 }

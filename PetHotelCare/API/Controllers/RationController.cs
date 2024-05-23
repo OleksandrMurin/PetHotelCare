@@ -1,4 +1,5 @@
-﻿using Mapster;
+﻿using Google.OrTools.LinearSolver;
+using Mapster;
 using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +11,8 @@ using PetHotelCare.API.Requests;
 using PetHotelCare.DataAccess;
 using PetHotelCare.DataAccess.Entities;
 using PetHotelCare.Utils.Constants;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace PetHotelCare.API.Controllers
 {
@@ -18,10 +21,14 @@ namespace PetHotelCare.API.Controllers
     public class RationController : CrudController<RationRequest, RationModel, Ration>
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper _mapper;
         public RationController(ApplicationDbContext context, IMapper mapper) : base(context, mapper)
         {
             _context = context;
+            _mapper = mapper;
+
         }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -29,64 +36,12 @@ namespace PetHotelCare.API.Controllers
         public override async Task<ActionResult<RationModel>> Add(RationRequest model)
         {
 
-            var proxy = model.Adapt<Ration>();
-            await _context.AddAsync(proxy);
-            await _context.SaveChangesAsync();
-            var response = await _context.Set<Ration>()
-                .Include(x => x.RationTags)
-                .ThenInclude(x => x.Tag)
-                .FirstOrDefaultAsync(x => x.Id == proxy.Id);
-            return response.Adapt<RationModel>();
+            var entity = model.Adapt<Ration>();
+            await _context.AddAsync(entity);
 
-        }
-        public async Task<ActionResult<RationModel>> CreateRation(int petId, double weight, string activity)
-        {
-            // Получение данных о питомце
-            var pet = await _context.Pets.Include(p => p.Breed).Include(p => p.ProhibitedTags).FirstOrDefaultAsync(p => p.Id == petId);
-            if (pet == null) return NotFound("Pet not found");
-
-            // Вычисление возраста питомца
-            var age = 0;
-            while (DateOnly.FromDateTime(DateTime.Now) > pet.BirthDate) {
-                age++;
-                pet.BirthDate.AddYears(1);
-            }
-
-            // Получение диеты
-            var diet = await _context.Diets.FirstOrDefaultAsync(d => d.Activity == activity && d.BreedId == pet.BreedId && d.MinAge <= age && d.MaxAge >= age);
-            if (diet == null) return NotFound("Diet not found");
-
-            // Расчет суточной потребности
-            var dailyCalories = diet.CaloricValue * weight;
-            var dailyProteins = diet.ProtsContent * weight;
-            var dailyFats = diet.FatsContent * weight;
-            var dailyCarbs = diet.CarbohydratesContent * weight;
-
-            // Получение списка разрешенных продуктов
-            var prohibitedTagIds = pet.ProhibitedTags.Select(pt => pt.TagId).ToList();
-            var products = await _context.Products
-                .Include(p => p.ProductsTag)
-                .Where(p => !p.ProductsTag.Any(t => prohibitedTagIds.Contains(t.TagId)))
-                .ToListAsync();
-            
-            //Пишу стринг для наглядности, на деле наверное лучше айдишники тегов будет использовать. 
-            //Если что такие теги и пропрорции их содержания в рационе будут по умолчанию
-            Dictionary<string, double> tags = new Dictionary<string, double> { { "PetFood", 0.5}, { "Meat", 0.3 }, { "Fiber", 0.2 }};
-            
-            // Выбираем оптимальные продукты, считая их вес и цену. Так же в методе добавляем записи в связную таблицу ПродуктыВРационе
-            var optimalProducts = CalculateOptimalRation(dailyCalories, dailyProteins, dailyFats, dailyCarbs, products, tags);
-
-            // Создание рациона
-            //var ration = new Ration
-            //{
-                
-            //};
-
-            
-            await _context.Rations.AddAsync(ration);
             await _context.SaveChangesAsync();
 
-            return ration.Adapt<RationModel>();
+            return _mapper.From(entity).EntityFromContext(_context).AdaptToType<RationModel>();
         }
 
         [HttpGet]

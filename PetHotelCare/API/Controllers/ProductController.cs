@@ -32,6 +32,7 @@ namespace PetHotelCare.API.Controllers
         {
 
             var proxy = model.Adapt<Product>();
+            
             await _context.AddAsync(proxy);
             await _context.SaveChangesAsync();
             var response = await _context.Set<Product>()
@@ -41,7 +42,25 @@ namespace PetHotelCare.API.Controllers
             return response.Adapt<ProductModel>();
 
         }
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public override async Task<IActionResult> Edit(int id, [FromBody] ProductRequest request)
+        {
+            //var entity = request.Adapt<Product>();
+            var entity = await _context.Set<Product>().FindAsync(id);
+            if(entity is null)
+            {
+                return NotFound();
+            }
+            request.Adapt(entity);
+            entity.ProductsTag.ForEach(x => x.ProductId = id);
+            _context.Update(entity);
 
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
         [HttpGet]
         [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]

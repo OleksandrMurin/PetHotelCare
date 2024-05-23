@@ -12,6 +12,7 @@ using PetHotelCare.API.Models;
 using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
 
+
 TypeAdapterConfig<ProductRequest, Product>.ForType()
     .Map(dest => dest.ProductsTag, src => src.Tags.Select(x => new ProductTag { TagId = x}));
 TypeAdapterConfig<Product, ProductModel>.ForType()
@@ -21,6 +22,13 @@ TypeAdapterConfig<PetRequest, Pet>.ForType()
     .Map(dest => dest.ProhibitedTags, src => src.ProhibitedTags.Select(x => new ProhibitedTag { TagId = x }));
 TypeAdapterConfig<Pet, PetModel>.ForType()
     .Map(dest => dest.ProhibitedTags, src => src.ProhibitedTags.ToDictionary(x => x.TagId, x => x.Tag.Name));
+
+//TypeAdapterConfig<RationRequest, Ration>.ForType()
+//    .Map(dest => dest.ProductsInRations, src => src.ProductsInRation
+//    .Select(x => new ProductsInRation { x => x.RationId, x => x.ProductId, x => x.Weight, x => x.Price }));//хз шо писать в селекте
+//TypeAdapterConfig<Ration, RationModel>.ForType()
+//    .Map(dest => dest.ProductsInRation, src => src.ProductsInRations
+//    .ToList({ x => x.RationId; }));
 
 
 
