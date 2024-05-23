@@ -12,7 +12,7 @@ using System.Linq.Expressions;
 namespace PetHotelCare.API.Controllers
 {
     [ApiController]
-    
+    [AllowAnonymous]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [Route(Routes.CrudRoute)]
     public abstract class CrudController<TRequest, TModel, TEntity> : ControllerBase
@@ -30,6 +30,7 @@ namespace PetHotelCare.API.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -47,6 +48,7 @@ namespace PetHotelCare.API.Controllers
         
 
         [HttpDelete]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -62,6 +64,7 @@ namespace PetHotelCare.API.Controllers
         }
 
         [HttpPut]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -76,7 +79,7 @@ namespace PetHotelCare.API.Controllers
         }
 
         [HttpGet("getById")]
-
+        [AllowAnonymous]
         public async Task<ActionResult<TModel>> GetById(int id)
         {
             var entity = await _context.FindAsync<TEntity>(id);

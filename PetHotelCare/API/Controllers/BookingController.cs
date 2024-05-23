@@ -48,9 +48,12 @@ namespace PetHotelCare.API.Controllers
             if (booking.Price == -1) return NotFound();
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
-            var model = booking.Adapt<BookingModel>();
-            
-            return CreatedAtAction(nameof(CreateBooking), model);
+            var response = await _context.Set<Booking>()
+                .Include(x => x.PetServices)
+                .ThenInclude(x => x.Id)
+                .FirstOrDefaultAsync(x => x.Id == booking.Id);
+
+            return CreatedAtAction(nameof(CreateBooking), response);
         }
 
         [HttpGet]
@@ -244,11 +247,7 @@ namespace PetHotelCare.API.Controllers
                     .Sum(service => service.Price);
             }
 
-            var rationReq = request.Ration;
-            var ration = rationReq.Adapt<Ration>();
-            
-
-            double totalPrice = roomTotal + servicesTotal + ration.Price;
+            double totalPrice = roomTotal + servicesTotal + request.Ration.Price;
             return totalPrice;
         }
     }

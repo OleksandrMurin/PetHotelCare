@@ -36,14 +36,36 @@ namespace PetHotelCare.API.Controllers
         public override async Task<ActionResult<RationModel>> Add(RationRequest model)
         {
 
-            var entity = model.Adapt<Ration>();
-            await _context.AddAsync(entity);
+            var proxy = model.Adapt<Ration>();
+
+            await _context.AddAsync(proxy);
+            await _context.SaveChangesAsync();
+            var response = await _context.Set<Ration>()
+                .Include(x => x.ProductsInRations)
+                .ThenInclude(x => x.Product)
+                .FirstOrDefaultAsync(x => x.Id == proxy.Id);
+            return response.Adapt<RationModel>();
+
+        }
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public override async Task<IActionResult> Edit(int id, [FromBody] RationRequest request)
+        {
+            //var entity = request.Adapt<Product>();
+            var entity = await _context.Set<Ration>().FindAsync(id);
+            if (entity is null)
+            {
+                return NotFound();
+            }
+            request.Adapt(entity);
+            entity.ProductsInRations.ForEach(x => x.RationId = id);
+            _context.Update(entity);
 
             await _context.SaveChangesAsync();
-
-            return _mapper.From(entity).EntityFromContext(_context).AdaptToType<RationModel>();
+            return Ok();
         }
-
         [HttpGet]
         [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]

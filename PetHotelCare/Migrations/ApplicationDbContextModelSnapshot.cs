@@ -428,21 +428,6 @@ namespace PetHotelCare.Migrations
                     b.ToTable("Rations");
                 });
 
-            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.RationTag", b =>
-                {
-                    b.Property<int>("RationId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("RationId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("RationTag");
-                });
-
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Room", b =>
                 {
                     b.Property<int>("Id")
@@ -766,25 +751,6 @@ namespace PetHotelCare.Migrations
                     b.Navigation("Tag");
                 });
 
-            modelBuilder.Entity("PetHotelCare.DataAccess.Entities.RationTag", b =>
-                {
-                    b.HasOne("PetHotelCare.DataAccess.Entities.Ration", "Ration")
-                        .WithMany()
-                        .HasForeignKey("RationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PetHotelCare.DataAccess.Entities.Tag", "Tag")
-                        .WithMany("RationTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ration");
-
-                    b.Navigation("Tag");
-                });
-
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.Room", b =>
                 {
                     b.HasOne("PetHotelCare.DataAccess.Entities.RoomType", "RoomType")
@@ -845,8 +811,6 @@ namespace PetHotelCare.Migrations
                     b.Navigation("ProductsTag");
 
                     b.Navigation("ProhibitedTags");
-
-                    b.Navigation("RationTags");
                 });
 
             modelBuilder.Entity("PetHotelCare.DataAccess.Entities.User", b =>

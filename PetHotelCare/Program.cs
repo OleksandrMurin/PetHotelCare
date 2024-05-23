@@ -23,6 +23,8 @@ TypeAdapterConfig<PetRequest, Pet>.ForType()
 TypeAdapterConfig<Pet, PetModel>.ForType()
     .Map(dest => dest.ProhibitedTags, src => src.ProhibitedTags.ToDictionary(x => x.TagId, x => x.Tag.Name));
 
+TypeAdapterConfig<Booking, BookingModel>.ForType()
+    .Map(dest => dest.PetServiceIds, src => src.PetServices.Select(x => x.Id));
 //TypeAdapterConfig<RationRequest, Ration>.ForType()
 //    .Map(dest => dest.ProductsInRations, src => src.ProductsInRation
 //    .Select(x => new ProductsInRation { x => x.RationId, x => x.ProductId, x => x.Weight, x => x.Price }));//хз шо писать в селекте
