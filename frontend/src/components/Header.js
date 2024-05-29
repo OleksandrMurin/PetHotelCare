@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 import logo from '../img/LogoPet.png';
 
-function Header({ onSignIn, onSignUp, content }) {
+function Header({ onSignIn, onSignUp, buttons, auth }) {
+  
   return (
-    <AppBar position="static" sx={{ bgcolor: "black" }}>
+    <AppBar position="fixed" sx={{ bgcolor: "black" }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box
@@ -23,15 +25,17 @@ function Header({ onSignIn, onSignUp, content }) {
           </Typography>
         </Box>
         <Box>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">Our Rooms</Button>
-          <Button color="inherit">Our Services</Button>
-          <Button color="inherit">About Us</Button>
+          {buttons.map((value, index) => (
+            <Button color="inherit" key = {index} component = {Link} to= {value.path}>{value.label}</Button>
+          ))}
         </Box>
-        <Box>
+        {!auth&&<Box>
           <Button color="inherit" onClick={onSignIn}>Sign in</Button>
           <Button variant="contained" color="primary" onClick={onSignUp}>Sign up</Button>
-        </Box>
+        </Box>}
+        {auth&&<Box>
+          <Button color="inherit" onClick={onSignUp}>Account</Button>
+        </Box>}
       </Toolbar>
     </AppBar>
   );
