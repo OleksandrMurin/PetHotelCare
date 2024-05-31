@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Select, MenuItem, TextField, Button, Typography, FormControl, InputLabel } from '@mui/material';
 
-const AnimalInfoStep = ({ onNext }) => {
-  const [animal, setAnimal] = useState('');
-  const [activity, setActivity] = useState('');
-  const [weight, setWeight] = useState('');
-
-  const animalOptions = [
-    { label: 'Dog', value: 'dog' },
-    { label: 'Cat', value: 'cat' },
-    { label: 'Parrot', value: 'parrot' }
-  ];
+const AnimalInfoStep = ({ onNext, animalOptions, animalInfo }) => {
+  const [animal, setAnimal] = useState(animalInfo.animal );
+  const [activity, setActivity] = useState(animalInfo.activity );
+  const [weight, setWeight] = useState(animalInfo.weight );
 
   const activityOptions = [
     { label: 'Active', value: 'Active' },
@@ -18,21 +12,30 @@ const AnimalInfoStep = ({ onNext }) => {
     { label: 'Passive', value: 'Passive' }
   ];
 
+
+  const handleAnimalChange = (e) => {
+    const selectedAnimal = animalOptions.find(option => option.value === e.target.value);
+    setAnimal(selectedAnimal.value);
+  };
+
   const handleNext = () => {
     if (animal && activity && weight) {
-      onNext({ animal, activity, weight });
+      onNext({animal, activity, weight });
     }
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '700px', gap: 2 }}>
+      <Box>
+
+      </Box>
       <Typography variant="h6">Fill actual information about your pet</Typography>
       <FormControl fullWidth>
         <InputLabel id="animal-select-label">Select your pet</InputLabel>
         <Select
           labelId="animal-select-label"
           value={animal}
-          onChange={(e) => setAnimal(e.target.value)}
+          onChange={handleAnimalChange}
           label="Select your pet"
         >
           {animalOptions.map((option) => (
@@ -64,11 +67,13 @@ const AnimalInfoStep = ({ onNext }) => {
         type="number"
         fullWidth
       />
-      <Button variant="contained" onClick={handleNext} sx={{ alignSelf: 'flex-end' }}>
-        Next step
-      </Button>
+      <Box sx={{display:'flex', justifySelf:'flex-end', alignSelf: 'flex-end' }}>
+        <Button variant="contained" onClick={handleNext} >
+          Next step
+        </Button>
+      </Box>
+      
     </Box>
   );
 };
-
 export default AnimalInfoStep;

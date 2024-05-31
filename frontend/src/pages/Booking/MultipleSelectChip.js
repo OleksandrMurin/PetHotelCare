@@ -32,7 +32,7 @@ function getStyles(service, selectedServices, theme) {
 
 export default function MultipleSelectChip({ selectedServices, handleServiceChange }) {
   const theme = useTheme();
-
+  console.log(selectedServices)
   const totalServicePrice = selectedServices.reduce((total, serviceName) => {
     const service = services.find(s => s.name === serviceName);
     return total + (service ? service.price : 0);

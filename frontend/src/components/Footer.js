@@ -4,7 +4,7 @@ import logo from '../img/LogoPet.png';
 
 function Footer() {
   return (
-    <Box sx={{ bgcolor: 'rgba(120, 120, 120, 0.7)', p: 6 }}>
+    <Box sx={{ bgcolor: 'rgba(120, 120, 120, 0.7)',  position:"static",  zIndex:3000, paddingTop:'10px' }}>
       <Grid container spacing={4} justifyContent="space-between">
         <Grid item xs={12} md={4}>
           <Typography variant="h6" gutterBottom>

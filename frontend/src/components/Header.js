@@ -3,10 +3,10 @@ import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import logo from '../img/LogoPet.png';
 
-function Header({ onSignIn, onSignUp, buttons, auth }) {
+function Header({ onSignIn, onSignUp, buttons, authorized }) {
   
   return (
-    <AppBar position="fixed" sx={{ bgcolor: "black" }}>
+    <AppBar position="fixed" sx={{ bgcolor: "black", zIndex:2000}}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box
@@ -29,12 +29,12 @@ function Header({ onSignIn, onSignUp, buttons, auth }) {
             <Button color="inherit" key = {index} component = {Link} to= {value.path}>{value.label}</Button>
           ))}
         </Box>
-        {!auth&&<Box>
+        {!authorized&&<Box>
           <Button color="inherit" onClick={onSignIn}>Sign in</Button>
           <Button variant="contained" color="primary" onClick={onSignUp}>Sign up</Button>
         </Box>}
-        {auth&&<Box>
-          <Button color="inherit" onClick={onSignUp}>Account</Button>
+        {authorized&&<Box>
+          <Button color="inherit" component = {Link} to= '/account'>Account</Button>
         </Box>}
       </Toolbar>
     </AppBar>

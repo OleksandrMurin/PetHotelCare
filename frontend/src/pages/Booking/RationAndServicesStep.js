@@ -2,10 +2,9 @@ import { Box, Button, Container, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import RationCard from './RationCard'
 import MultipleSelectChip from './MultipleSelectChip';
-function RationAndServicesStep({services, ration, setRation}) {
+function RationAndServicesStep({services, selectedServicesB, Name, ration, setRation, onNext, onPrev}) {
   const [isEditing, setIsEditing] = useState(false);
-  const [selectedServices, setSelectedServices] = useState([]);
-
+  const [selectedServices, setSelectedServices] = useState(selectedServicesB);
     const editRation = () => {
         setIsEditing(true);
     };
@@ -21,24 +20,33 @@ function RationAndServicesStep({services, ration, setRation}) {
         setRation(newRation);
         setIsEditing(false);
     };
+    const handleNext = () => {
+      onNext(selectedServices );
+    };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '700px', gap: 2 }}>
       <Typography variant='h6'>
         Change generated optimal ration for your pet, if you sure 
       </Typography>
-      <RationCard ration={ration} Name={'Bars'} isEditing={isEditing} editRation={editRation} confirmChanges={confirmChanges} />
+      <RationCard ration={ration} Name={"Bars"} isEditing={isEditing} editRation={editRation} confirmChanges={confirmChanges} />
       <Typography variant='h6'>
-        Choose services for uor pet (optional) 
+        Choose services for your pet (optional) 
       </Typography>
       <MultipleSelectChip
           services={services}
           selectedServices={selectedServices}
           handleServiceChange={handleServiceChange}
         />
-      <Button variant="contained" sx={{ alignSelf: 'flex-end' }}>
-        Next step
-      </Button>
+      <Box sx={{display:'flex', justifyContent:'space-between'}}>
+        <Button variant="contained" onClick={onPrev}>
+          Previous step
+        </Button>
+        <Button variant="contained" onClick={handleNext} >
+          Next step
+        </Button>
+      </Box>
+      
     </Box>
   );
 }

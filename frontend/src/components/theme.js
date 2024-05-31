@@ -26,8 +26,25 @@ const theme = createTheme({
     h2: {
       fontFamily: 'Fira Sans, sans-serif',
     },
+    h3: {
+      fontFamily: 'Fira Sans, sans-serif',
+    },
+    h4: {
+      fontFamily: 'Fira Sans, sans-serif',
+    },
+    h5: {
+      fontFamily: 'Fira Sans, sans-serif',
+    },
+    h6: {
+      fontFamily: 'Fira Sans, sans-serif',
+    },
     body2:{
-        
+      fontFamily: 'Fira Sans, sans-serif',
+      fontSize: '17px',
+    },
+    body3:{
+      fontFamily: 'Fira Sans, sans-serif',
+      fontSize: '15px'
     }
   },
   components: {
@@ -55,7 +72,28 @@ const theme = createTheme({
             },
           },
         },
-        
+        {
+          props: { variant: 'outlined', size: 'big', color: 'primary' },
+          style: {
+            borderColor: '#3b5998',
+            color: '#3b5998',
+            '&:hover': {
+              backgroundColor: '#3b5998',
+              color: '#fff',
+            },
+          },
+        },
+        {
+          props: { variant: 'outlined', size: 'big', color: 'secondary' },
+          style: {
+            borderColor: '#DE4141',
+            color: '#DE4141',
+            '&:hover': {
+              backgroundColor: '#DE4141',
+              color: '#fff',
+            },
+          },
+        },
       ],
     },
   },

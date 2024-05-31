@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { Box, Select, MenuItem, Button, Typography, FormControl, InputLabel, TextField } from '@mui/material';
 
 import RoomList from './RoomList';
@@ -6,28 +6,26 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DateRangePicker } from '@mui/x-date-pickers-pro';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 
-const RoomSelectionStep = ({ onNext }) => {
-    const roomsData = [
-        { id: 1, name: 'Room 1', image: '/images/room1.jpg', description: 'Cozy room for your pet', pricePerDay: 50 },
-        { id: 2, name: 'Room 2', image: '/images/room2.jpg', description: 'Spacious room with a view', pricePerDay: 75 },
-        { id: 3, name: 'Room 1', image: '/images/room1.jpg', description: 'Cozy room for your pet', pricePerDay: 50 },
-        { id: 4, name: 'Room 2', image: '/images/room2.jpg', description: 'Spacious room with a view', pricePerDay: 75 },
-        { id: 5, name: 'Room 1', image: '/images/room1.jpg', description: 'Cozy room for your pet', pricePerDay: 50 },
-        { id: 6, name: 'Room 2', image: '/images/room2.jpg', description: 'Spacious room with a view', pricePerDay: 75 },
-        { id: 7, name: 'Room 1', image: '/images/room1.jpg', description: 'Cozy room for your pet', pricePerDay: 50 },
-        { id: 8, name: 'Room 2', image: '/images/room2.jpg', description: 'Spacious room with a view', pricePerDay: 75 },
-        // Добавьте больше данных по аналогии
-      ];
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [roomCategory, setRoomCategory] = useState('');
-  const [showRooms, setShowRooms] = useState(false);
-  const [selectedRoom, setSelectedRoom] = useState(null);
-  const handleSelectRoom =(roomId) =>{
+const RoomSelectionStep = ({ onNext, onPrev, roomsData, roomSelection }) => {
+  const [dateRange, setDateRange] = useState(roomSelection.dateRange || [null, null]);
+  const [roomCategory, setRoomCategory] = useState(roomSelection.roomCategory || '');
+  const [selectedRoom, setSelectedRoom] = useState(roomSelection.selectedRoom || null);
+  const [showRooms, setShowRooms] = useState(!!selectedRoom);
+
+  useEffect(() => {
+    setDateRange(roomSelection.dateRange || [null, null]);
+    setRoomCategory(roomSelection.roomCategory || '');
+    setSelectedRoom(roomSelection.selectedRoom || null);
+    setShowRooms(!!roomSelection.selectedRoom);
+  }, [roomSelection]);
+
+  const handleSelectRoom = (roomId) => {
     setSelectedRoom(roomId);
-  }
-  const handleCancelSelect =() =>{
-    setSelectedRoom(null)
-  }
+  };
+
+  const handleCancelSelect = () => {
+    setSelectedRoom(null);
+  };
   
   const roomCategories = [
     { label: 'Standard', value: 'standard' },
@@ -42,11 +40,11 @@ const RoomSelectionStep = ({ onNext }) => {
   };
 
   const handleNext = () => {
-    onNext({ dateRange, roomCategory });
+    onNext({ dateRange, roomCategory, selectedRoom });
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '700px', gap: 2 }}>
       <Typography variant="h5" align='center'>Choose room details</Typography>
       <Typography variant="h6">Choose date range</Typography>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -79,13 +77,14 @@ const RoomSelectionStep = ({ onNext }) => {
           ))}
         </Select>
       </FormControl>
-      {!showRooms && 
+      {!showRooms && (
         <Button variant="contained" onClick={handleSearchRooms} sx={{ alignSelf: 'flex-end' }}>
-        Search rooms
-      </Button>}
+          Search rooms
+        </Button>
+      )}
       {showRooms && (
         <Box>
-          <Typography variant="h6" sx={{padding: '20px'}}>Choose room for your pet</Typography>
+          <Typography variant="h6" sx={{ padding: '20px' }}>Choose room for your pet</Typography>
           <RoomList
             dateRange={dateRange}
             roomCategory={roomCategory}
@@ -96,13 +95,16 @@ const RoomSelectionStep = ({ onNext }) => {
             handleCancelSelect={handleCancelSelect}
           />
         </Box>
-        
       )}
-      {dateRange[0] && dateRange[1] && selectedRoom &&
-      <Button variant="contained" onClick={handleNext} sx={{ alignSelf: 'flex-end' }}>
-        Next step
-      </Button>
-      }
+      
+      <Box sx={{display:'flex', justifyContent:'space-between'}}>
+        <Button variant="contained" onClick={onPrev}>
+          Previous step
+        </Button>
+        {dateRange[0] && dateRange[1] && selectedRoom && (<Button variant="contained" onClick={handleNext}>
+          Next step
+        </Button>)}
+      </Box>
     </Box>
   );
 };
