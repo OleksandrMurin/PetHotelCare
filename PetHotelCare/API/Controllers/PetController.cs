@@ -25,7 +25,7 @@ namespace PetHotelCare.API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<PaginationModel<PetModel>> GetUserPets(int page)  //УТОЧНИТЬ У ЕУГЕНИЯ!!!!!
         {
@@ -66,13 +66,72 @@ namespace PetHotelCare.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public override async Task<IActionResult> Edit(int id, PetRequest request)
         {
+            var prohTags = _context.Set<ProhibitedTag>().Where(x => x.PetId == id);
+            _context.Set<ProhibitedTag>().RemoveRange(prohTags);
             var entity = request.Adapt<Pet>();
             entity.Id = id;
-            entity.UserId = _userManager.GetUserId(User);
+            entity.UserId = _userManager.GetUserId(User)!;
             _context.Update(entity);
 
             await _context.SaveChangesAsync();
             return Ok();
         }
+        //[HttpPut("{id}")]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status404NotFound)]
+        //public override async Task<IActionResult> Edit(int id, PetRequest request)
+        //{
+        //    var userId = _userManager.GetUserId(User);
+        //    var pet = await _context.Pets
+        //        .Include(p => p.ProhibitedTags)
+        //        .FirstOrDefaultAsync(p => p.Id == id && p.UserId == userId);
+
+        //    if (pet == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    // Обновляем основные данные питомца
+        //    pet.Name = request.Name;
+        //    pet.BirthDate = request.BirthDate;
+        //    pet.BreedId = request.BreedId;
+        //    pet.AdditionalInfo = request.AdditionalInfo;
+        //    pet.Image = request.Image;
+
+        //    // Удаляем старые запрещенные теги
+        //    var oldTags = pet.ProhibitedTags.ToList();
+        //    _context.ProhibitedTags.RemoveRange(oldTags);
+
+        //    // Добавляем новые запрещенные теги
+        //    pet.ProhibitedTags = request.ProhibitedTags.Select(tagId => new ProhibitedTag
+        //    {
+        //        PetId = pet.Id,
+        //        TagId = tagId
+        //    }).ToList();
+
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!PetExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return Ok();
+        //}
+
+        //private bool PetExists(int id)
+        //{
+        //    return _context.Pets.Any(e => e.Id == id);
+        //}
     }
 }

@@ -1,14 +1,64 @@
-import React, { useState } from 'react';
-import { Box, Typography, Card, CardContent, CardActions, Button, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Avatar, IconButton } from '@mui/material';
+import React, { useContext, useEffect, useState } from 'react';
+import { Box, Typography, Card, CardContent, CardActions, Button, IconButton, Avatar } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import axios from 'axios';
+import AuthContext from '../../contexts/AuthProvider';
+import PetCard from './PetCard';
+import AddPetDialog from './AddPetDialog';
+import EditPetDialog from './EditPetDialog';
+import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_URL } from '../../constants';
 
-const MyPets = ({ pets, setPets }) => {
+const MyPets = () => {
+  const [pets, setPets] = useState({});
+  
   const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [currentPet, setCurrentPet] = useState(null);
+  const { user } = useContext(AuthContext);
+  const [userId] = useState(user.data.id);
+  const [petTypes, setPetTypes] = useState([]);
+  const [tags, setTags] = useState([]);
+  const [avatarFile, setAvatarFile] = useState(null);
+
+  useEffect(() => {
+    const fetchPets = async () => {
+      try {
+        const response = await axios.get('https://localhost:7108/api/Pet', { withCredentials: true });
+        setPets(response.data.items.reduce((o, x) => ({ ...o, [x.id]: x }), {}));
+      } catch (error) {
+        console.error('Error fetching pets:', error);
+      }
+    };
+
+    fetchPets();
+  }, []);
+
+  const fetchPetTypes = async () => {
+    try {
+      const response = await axios.get('https://localhost:7108/api/Breed?page=1', { withCredentials: true });
+      setPetTypes(response.data.items);
+    } catch (error) {
+      console.error('Error fetching pet types:', error);
+    }
+  };
+
+  const fetchTags = async () => {
+    try {
+      const response = await axios.get('https://localhost:7108/api/Tag?page=1', { withCredentials: true });
+      setTags(response.data.items);
+    } catch (error) {
+      console.error('Error fetching tags:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPetTypes();
+    fetchTags();
+  }, []);
 
   const handleAddClick = () => {
-    setCurrentPet({ id: null, name: '', birthDate: '', breed: '', additionalInfo: '', avatar: '' });
-    setEditDialogOpen(true);
+    setCurrentPet({ id: null, name: '', birthDate: '', breedId: '', additionalInfo: '', image: '', prohibitedTags: [] });
+    setAddDialogOpen(true);
   };
 
   const handleEditClick = (pet) => {
@@ -18,25 +68,45 @@ const MyPets = ({ pets, setPets }) => {
 
   const handleClose = () => {
     setEditDialogOpen(false);
+    setAddDialogOpen(false);
     setCurrentPet(null);
   };
 
-  const handleSave = () => {
-    setPets((prevPets) =>
-      currentPet.id
-        ? prevPets.map((pet) => (pet.id === currentPet.id ? currentPet : pet))
-        : [...prevPets, { ...currentPet, id: Date.now() }]
-    );
+  const handleAddSave = async (localPet) => {
+    try {
+      const response = await axios.post('https://localhost:7108/api/Pet', { ...localPet, userId }, { withCredentials: true });
+      setPets((prevPets) => ({ ...prevPets, [response.data.id]: response.data }));
+    } catch (error) {
+      console.error('Error adding pet:', error);
+    }
     handleClose();
   };
 
-  const handleDeleteClick = (petId) => {
-    setPets((prevPets) => prevPets.filter((pet) => pet.id !== petId));
+  const handleEditSave = async (localPet) => {
+    try {
+      await axios.put(`https://localhost:7108/api/Pet?id=${localPet.id}`, localPet, { withCredentials: true });
+      const response = await axios.get(`https://localhost:7108/api/Pet/getById?id=${localPet.id}`, { withCredentials: true });
+      setPets((prevPets) => {
+        const updatedPets = { ...prevPets, [localPet.id]: response.data };
+        return updatedPets;
+      });
+    } catch (error) {
+      console.error('Error updating pet:', error);
+    }
+    handleClose();
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCurrentPet({ ...currentPet, [name]: value });
+  const handleDeleteClick = async (petId) => {
+    try {
+      await axios.delete(`https://localhost:7108/api/Pet?id=${petId}`, { withCredentials: true });
+      setPets((prevPets) => {
+        const newPets = { ...prevPets };
+        delete newPets[petId];
+        return newPets;
+      });
+    } catch (error) {
+      console.error('Error deleting pet:', error);
+    }
   };
 
   return (
@@ -45,98 +115,37 @@ const MyPets = ({ pets, setPets }) => {
         My Pets
       </Typography>
       <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2 }}>
-        {pets.map((pet) => (
-          <Card key={pet.id} sx={{ width: 400 }}>
-            <CardContent>
-              <Avatar src={pet.avatar} sx={{ width: 200, height: 200, margin: '0 auto 10px' }} />
-              <Typography variant="h5" align="center" component="div">
-                {pet.name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <strong>Birth Date:</strong> {pet.birthDate}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <strong>Breed: </strong>{pet.breed}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <strong>Additional Info:</strong> {pet.additionalInfo}
-              </Typography>
-            </CardContent>
-            <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Button variant="outlined" size="big" color="primary" sx={{ width: '100px' }} onClick={() => handleEditClick(pet)}>
-                Edit
-              </Button>
-              <Button variant="outlined" size="big" color="secondary" sx={{ width: '100px' }} onClick={() => handleDeleteClick(pet.id)}>
-                Delete
-              </Button>
-            </CardActions>
-          </Card>
+        {Object.keys(pets).map((key) => (
+          <PetCard key={key} pet={pets[key]} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} tags={tags} />
         ))}
         <IconButton onClick={handleAddClick} sx={{ alignSelf: 'center', marginTop: 2 }}>
           <AddCircleIcon sx={{ fontSize: 40 }} />
         </IconButton>
       </Box>
-      <Dialog open={editDialogOpen} onClose={handleClose}>
-        <DialogTitle>{currentPet && currentPet.id ? 'Edit Pet' : 'Add Pet'}</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            {currentPet && currentPet.id ? 'Update the information of your pet.' : 'Enter the information of your new pet.'}
-          </DialogContentText>
-          {currentPet && (
-            <>
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Name"
-                name="name"
-                value={currentPet.name}
-                onChange={handleChange}
-                fullWidth
-              />
-              <TextField
-                margin="dense"
-                label="Birth Date"
-                name="birthDate"
-                type="date"
-                value={currentPet.birthDate}
-                onChange={handleChange}
-                fullWidth
-                InputLabelProps={{ shrink: true }}
-              />
-              <TextField
-                margin="dense"
-                label="Breed"
-                name="breed"
-                value={currentPet.breed}
-                onChange={handleChange}
-                fullWidth
-              />
-              <TextField
-                margin="dense"
-                label="Additional Info"
-                name="additionalInfo"
-                value={currentPet.additionalInfo}
-                onChange={handleChange}
-                fullWidth
-              />
-              <TextField
-                margin="dense"
-                label="Avatar URL"
-                name="avatar"
-                value={currentPet.avatar}
-                onChange={handleChange}
-                fullWidth
-              />
-            </>
-          )}
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSave}>Save</Button>
-        </DialogActions>
-      </Dialog>
+      <AddPetDialog
+        open={addDialogOpen}
+        onClose={handleClose}
+        onSave={handleAddSave}
+        petTypes={petTypes}
+        tags={tags}
+        avatarFile={avatarFile}
+        setAvatarFile={setAvatarFile}
+        userId={userId}
+      />
+      <EditPetDialog
+        open={editDialogOpen}
+        onClose={handleClose}
+        onSave={handleEditSave}
+        pet={currentPet}
+        petTypes={petTypes}
+        tags={tags}
+        avatarFile={avatarFile}
+        setAvatarFile={setAvatarFile}
+        userId={userId}
+      />
     </Box>
   );
 };
+
 
 export default MyPets;

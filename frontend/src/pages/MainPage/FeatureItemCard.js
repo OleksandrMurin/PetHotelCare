@@ -8,7 +8,7 @@ import { Box } from '@mui/material';
 
 function FeatureItemCard({icon, title, description}) {
   return (
-    <Card variant='outlined' sx={{padding: "20px 20px", display: 'flex', alignItems: 'center', justifyContent:'center', bgcolor: 'rgba(255, 255, 255, 0.8)', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', transition: 'background-color 0.2s, transform 0.1s', '&:hover':{transform: 'scale(1.05)', backgroundColor: '#DEDEDE' }}}>
+    <Card variant='outlined' sx={{padding: "10px", display: 'flex', alignItems: 'center', justifyContent:'center', bgcolor: 'rgba(255, 255, 255, 0.8)', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', transition: 'background-color 0.2s, transform 0.1s', '&:hover':{transform: 'scale(1.05)', backgroundColor: '#DEDEDE' }}}>
         <Icon sx={{flex: '1 1 10%', display: 'flex',  alignItems: 'center', justifyContent:'center' }}>
             {icon}
         </Icon>

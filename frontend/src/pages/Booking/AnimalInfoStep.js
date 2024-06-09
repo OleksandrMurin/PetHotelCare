@@ -1,40 +1,53 @@
-import React, { useState } from 'react';
-import { Box, Select, MenuItem, TextField, Button, Typography, FormControl, InputLabel } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, FormControl, InputLabel, Select, MenuItem, TextField, Button } from '@mui/material';
+import axios from 'axios';
 
 const AnimalInfoStep = ({ onNext, animalOptions, animalInfo }) => {
-  const [animal, setAnimal] = useState(animalInfo.animal );
-  const [activity, setActivity] = useState(animalInfo.activity );
-  const [weight, setWeight] = useState(animalInfo.weight );
+  const [petId, setPetId] = useState(animalInfo.petId || '');
+  const [name, setName] = useState(animalInfo.name || '');
+  const [activity, setActivity] = useState(animalInfo.activity || '');
+  const [weight, setWeight] = useState(animalInfo.weight || '');
+  const [activityOptions, setActivityOptions] = useState([]);
 
-  const activityOptions = [
-    { label: 'Active', value: 'Active' },
-    { label: 'Semi-active', value: 'Semi-active' },
-    { label: 'Passive', value: 'Passive' }
-  ];
+  useEffect(() => {
+    // Функция для получения уникальных значений активности
+    const fetchActivities = async () => {
+      try {
+        const response = await axios.get('https://localhost:7108/api/Diet?page=1', { withCredentials: true });
+        const diets = response.data.items;
+        // Извлекаем уникальные значения активности
+        const activities = [...new Set(diets.map(diet => diet.activity))];
+        setActivityOptions(activities);
+      } catch (error) {
+        console.error('Error fetching activities:', error);
+      }
+    };
 
+    fetchActivities();
+  }, []);
 
   const handleAnimalChange = (e) => {
     const selectedAnimal = animalOptions.find(option => option.value === e.target.value);
-    setAnimal(selectedAnimal.value);
+    setPetId(selectedAnimal.value);
+    console.log(selectedAnimal)
+    setName(selectedAnimal.label);
   };
 
   const handleNext = () => {
-    if (animal && activity && weight) {
-      onNext({animal, activity, weight });
+    if (petId && activity && weight) {
+      onNext({petId, activity, weight, name });
     }
+    
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '700px', gap: 2 }}>
-      <Box>
-
-      </Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '700px' }}>
       <Typography variant="h6">Fill actual information about your pet</Typography>
       <FormControl fullWidth>
         <InputLabel id="animal-select-label">Select your pet</InputLabel>
         <Select
           labelId="animal-select-label"
-          value={animal}
+          value={petId}
           onChange={handleAnimalChange}
           label="Select your pet"
         >
@@ -53,9 +66,9 @@ const AnimalInfoStep = ({ onNext, animalOptions, animalInfo }) => {
           onChange={(e) => setActivity(e.target.value)}
           label="Activity"
         >
-          {activityOptions.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
+          {activityOptions.map((option, index) => (
+            <MenuItem key={index} value={option}>
+              {option}
             </MenuItem>
           ))}
         </Select>
@@ -67,13 +80,11 @@ const AnimalInfoStep = ({ onNext, animalOptions, animalInfo }) => {
         type="number"
         fullWidth
       />
-      <Box sx={{display:'flex', justifySelf:'flex-end', alignSelf: 'flex-end' }}>
-        <Button variant="contained" onClick={handleNext} >
-          Next step
-        </Button>
-      </Box>
-      
+      <Button variant="contained" onClick={handleNext} sx={{ alignSelf: 'flex-end' }}>
+        Next step
+      </Button>
     </Box>
   );
 };
+
 export default AnimalInfoStep;

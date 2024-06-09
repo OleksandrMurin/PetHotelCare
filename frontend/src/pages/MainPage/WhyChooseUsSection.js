@@ -37,7 +37,7 @@ const WhyChooseUsSection = () => {
       </Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'stretch', gap: 20, padding: "20px 20px"  }}>
         <Box sx={{ flex: '1 1 60%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <img src="https://opis-cdn.tinkoffjournal.ru/mercury/pet-all-inclusive-2-2.8xfhdbwguygh.jpg" alt="Description" style={{ maxWidth: '100%', borderRadius:"15px", maxHeight: '100%' }} />
+          <img src="https://i.pinimg.com/originals/51/c5/da/51c5da93b198b7fda5b7c220ab78ea65.jpg" alt="Description" style={{ maxWidth: '100%', borderRadius:"15px", maxHeight: '100%' }} />
         </Box>
         <Box sx={{ flex: '1 1 40%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
           {features.map((value, index) => (

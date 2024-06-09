@@ -1,13 +1,17 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent, CardActions, Button } from '@mui/material';
+import { Box, Card, CardContent, CardActions, Typography, Button } from '@mui/material';
+import axios from 'axios';
 
-
-
-const MyBookings = ({ bookingsData, setBookingsData }) => {
-  const handleSetBookingsData = (id) => {
-    setBookingsData(bookingsData => bookingsData.filter(booking => booking.id !== id));
+const MyBookings = ({ bookingsData, setBookings }) => {
+  const handleDeleteClick = async (bookingId) => {
+    try {
+      await axios.delete(`https://localhost:7108/api/Booking?bookingId=${bookingId}`, { withCredentials: true });
+      const response = await axios.get('https://localhost:7108/api/Booking', { withCredentials: true });
+        setBookings(response.data.items);
+    } catch (error) {
+      console.error('Error deleting booking:', error);
+    }
   };
-
   return (
     <Box sx={{ padding: 3 }}>
       <Typography variant="h4" align="center" gutterBottom>
@@ -18,30 +22,30 @@ const MyBookings = ({ bookingsData, setBookingsData }) => {
           <Card key={booking.id} sx={{ maxWidth: 500 }}>
             <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               <Typography variant="h5" component="div" align="center">
-                {booking.petName}
+                {booking.petId}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <strong>Room Number:</strong> {booking.roomNumber}
+                <strong>Check-In Date:</strong> {new Date(booking.checkInDate).toLocaleDateString()}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <strong>Room Type:</strong> {booking.roomType}
+                <strong>Check-Out Date:</strong> {new Date(booking.checkOutDate).toLocaleDateString()}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <strong>Date Range:</strong> {booking.dateRange[0]} - {booking.dateRange[1]}
+                <strong>Room ID:</strong> {booking.roomId}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <strong>Ration Price:</strong> ${booking.rationPrice}
+                <strong>Ration ID:</strong> {booking.rationId}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <strong>Services:</strong> {booking.services.join(', ')}
+                <strong>Services:</strong> {Object.values(booking.petServices).join(', ')}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <strong>Total Price:</strong> ${booking.totalPrice}
+                <strong>Total Price:</strong> ${booking.price}
               </Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', justifyContent: 'space-between', padding: '20px' }}>
               <Button variant="outlined" size="small" color="primary">View Details</Button>
-              <Button variant="outlined" size="small" color="secondary" onClick={() => handleSetBookingsData(booking.id)}>Cancel Booking</Button>
+              <Button variant="outlined" size="small" color="secondary" onClick={() => handleDeleteClick(booking.id)}>Cancel Booking</Button>
             </CardActions>
           </Card>
         ))}

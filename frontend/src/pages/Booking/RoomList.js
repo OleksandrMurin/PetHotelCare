@@ -6,7 +6,7 @@ import RoomCard from '../OurRooms/RoomCard';
 
 const RoomList = ({ roomsData, selectedRoom, handleSelectRoom, handleCancelSelect }) => {
   const [page, setPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 2;
   
   const handleChangePage = (event, value) => {
     setPage(value);

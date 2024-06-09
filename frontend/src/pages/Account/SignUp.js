@@ -1,21 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Box, Button, TextField, Typography, Paper } from '@mui/material';
+import AuthContext from '../../contexts/AuthProvider';
 
 function SignUp({ onSwitchToSignIn }) {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
+  const {register} = useContext(AuthContext)
   const handleSignUp = () => {
-    // Add your sign-up logic here
-    console.log('Sign up', { email, password, confirmPassword });
+    register(name, email, password, confirmPassword)
+    
   };
 
   return (
-    <Paper elevation={3} sx={{ padding: 3, maxWidth: 400, maxHeight:'450px', margin: '0 auto', marginTop: 4 }}>
+    <Paper elevation={3} sx={{ padding: 3, maxWidth: 400, maxHeight:'500px', margin: '0 auto', marginTop: 4 }}>
       <Typography variant="h4" align="center" gutterBottom>
         Sign Up
       </Typography>
+      <TextField
+        label="Your name"
+        type="name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        fullWidth
+        margin="normal"
+      />
       <TextField
         label="Email"
         type="email"

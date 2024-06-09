@@ -11,8 +11,6 @@ namespace PetHotelCare.API.Requests
         [Required, DataType(DataType.Date)]
         public DateOnly CheckOutDate { get; set; }
         
-        [Required]
-        public double Price { get; set; }
 
         [Required]
         public int PetId { get; set; }

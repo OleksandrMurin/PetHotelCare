@@ -11,16 +11,6 @@ import Typography from '@mui/material/Typography';
 
 
 
-const services = [
-  { name: 'Grooming', price: 50 },
-  { name: 'Walking', price: 20 },
-  { name: 'Training', price: 100 },
-  { name: 'Veterinary Checkup', price: 80 },
-  { name: 'Pet Daycare', price: 40 },
-  { name: 'Feeding', price: 30 },
-  { name: 'Bathing', price: 25 },
-];
-
 function getStyles(service, selectedServices, theme) {
   return {
     fontWeight:
@@ -30,11 +20,11 @@ function getStyles(service, selectedServices, theme) {
   };
 }
 
-export default function MultipleSelectChip({ selectedServices, handleServiceChange }) {
+export default function MultipleSelectChip({ services, selectedServices, handleServiceChange }) {
   const theme = useTheme();
   console.log(selectedServices)
-  const totalServicePrice = selectedServices.reduce((total, serviceName) => {
-    const service = services.find(s => s.name === serviceName);
+  const totalServicePrice = selectedServices.reduce((total, serviceId) => {
+    const service = services.find(s => s.id === serviceId);
     return total + (service ? service.price : 0);
   }, 0);
 
@@ -52,17 +42,16 @@ export default function MultipleSelectChip({ selectedServices, handleServiceChan
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (
-                <Chip key={value} label={value} />
+                <Chip key={value} label={services.find(s => s.id === value)?.name || value} />
               ))}
             </Box>
           )}
-          
         >
           {services.map((service) => (
             <MenuItem
-              key={service.name}
-              value={service.name}
-              style={getStyles(service.name, selectedServices, theme)}
+              key={service.id}
+              value={service.id}
+              style={getStyles(service.id, selectedServices, theme)}
             >
               {service.name}
             </MenuItem>
@@ -70,7 +59,7 @@ export default function MultipleSelectChip({ selectedServices, handleServiceChan
         </Select>
       </FormControl>
       <Typography variant="h6" sx={{ mt: 2 }}>
-        Total Service Price: ${totalServicePrice}
+        Total Service Price: ${totalServicePrice.toFixed(2)}
       </Typography>
     </Box>
   );

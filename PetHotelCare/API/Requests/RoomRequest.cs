@@ -6,6 +6,7 @@ namespace PetHotelCare.API.Requests
     public class RoomRequest
     {
         public string Image { get; set; }
+        public string Description { get; set; }
 
         [Required]
         public string Number { get; set; }

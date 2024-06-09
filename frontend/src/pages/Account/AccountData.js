@@ -9,10 +9,9 @@ import axios from 'axios';
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dbxnwzleo/image/upload';
 const CLOUDINARY_UPLOAD_PRESET = 'cloudName';
 
-const AccountData = ({userData, setUserData, avatarFile, setAvatarFile}) => {
+const AccountData = ({ userData, setUserData, avatarFile, setAvatarFile }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  
 
   const handleChange = (prop) => (event) => {
     setUserData({ ...userData, [prop]: event.target.value });
@@ -46,14 +45,26 @@ const AccountData = ({userData, setUserData, avatarFile, setAvatarFile}) => {
     }
   };
 
+  // const handleLogout = async () => {
+  //   try {
+  //     console.log('Attempting to log out...');
+  //     const response = await axios.delete('https://localhost:7108/api/Account/Logout', {}, { withCredentials: true });
+  //     console.log('Logout response:', response);
+  //     // Перенаправляем пользователя на главную страницу после разлогинивания
+  //     window.location.href = '/';
+  //   } catch (error) {
+  //     console.error('Error logging out:', error);
+  //   }
+  // };
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, padding: 3 }}>
       <Typography variant="h4" align='center' gutterBottom>
         Account details
       </Typography>
-      <Box sx={{bgcolor: 'rgba(255, 255, 255, 0.8)', }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, paddingBottom:'15px'}}>
-          <Avatar src={userData.avatar} sx={{ width: 100, height: 100,  }} />
+      <Box sx={{ bgcolor: 'rgba(255, 255, 255, 0.8)', padding: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, paddingBottom: '15px' }}>
+          <Avatar src={userData.avatar} sx={{ width: 100, height: 100 }} />
           <Box>
             <Typography variant="h6">{userData.name}</Typography>
             <Typography variant="body1">{userData.email}</Typography>
@@ -78,8 +89,8 @@ const AccountData = ({userData, setUserData, avatarFile, setAvatarFile}) => {
             />
             <TextField
               label="Username"
-              value={userData.nickname}
-              onChange={handleChange('nickname')}
+              value={userData.userName}
+              onChange={handleChange('userName')}
               fullWidth
             />
             <TextField
@@ -100,8 +111,8 @@ const AccountData = ({userData, setUserData, avatarFile, setAvatarFile}) => {
             />
             <TextField
               label="Phone number"
-              value={userData.phone}
-              onChange={handleChange('phone')}
+              value={userData.phoneNumber}
+              onChange={handleChange('phoneNumber')}
               fullWidth
             />
             <Button
@@ -109,7 +120,7 @@ const AccountData = ({userData, setUserData, avatarFile, setAvatarFile}) => {
               component="label"
               sx={{ marginTop: 2 }}
             >
-              Download image
+              Upload image
               <input
                 type="file"
                 hidden
@@ -131,17 +142,22 @@ const AccountData = ({userData, setUserData, avatarFile, setAvatarFile}) => {
           <Box>
             <Typography variant="body2"><strong>Email:</strong> {userData.email}</Typography>
             <Typography variant="body1"><strong>Name:</strong> {userData.name}</Typography>
-            <Typography variant="body1"><strong>Username:</strong> {userData.nickname}</Typography>
-            <Typography variant="body1"><strong>Password:</strong> {isEditing ? userData.password : '********'}</Typography>
-            <Typography variant="body1"><strong>Phone number:</strong> {userData.phone}</Typography>
+            <Typography variant="body1"><strong>Username:</strong> {userData.userName}</Typography>
+            <Typography variant="body1"><strong>Password:</strong> {'********'}</Typography>
+            <Typography variant="body1"><strong>Phone number:</strong> {userData.phoneNumber}</Typography>
           </Box>
         )}
       </Box>
-      
+      <Button
+        variant="contained"
+        color="secondary"
+        // onClick={handleLogout}
+        sx={{ marginTop: 2 }}
+      >
+        Logout
+      </Button>
     </Box>
   );
-}
-
-
+};
 
 export default AccountData;

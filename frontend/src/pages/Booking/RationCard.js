@@ -1,22 +1,35 @@
-import { Box, Button, Card, CardContent, IconButton, InputAdornment, OutlinedInput, TextField, Typography, Autocomplete  } from '@mui/material';
+import { Box, Button, Card, CardContent, IconButton, InputAdornment, OutlinedInput, TextField, Typography, Autocomplete, Divider } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import axios from 'axios';
 
-function RationCard({ Name, ration, isEditing, editRation, confirmChanges }) {
-  const [rationProducts, setRationProducts] = useState(ration.products);
+function RationCard({ Name, ration, animalInfo, setRation, availableProducts }) {
+  const [isEditing, setIsEditing] = useState(false);
+  
+  const [rationProducts, setRationProducts] = useState(ration.productInRation.map(product => ({
+    productId: product.productId,
+    weight: Math.round(product.weight), 
+    name: availableProducts.find(p => p.id === product.productId)?.name || 'Unknown',
+    pricePer100g: availableProducts.find(p => p.id === product.productId)?.pricePer100g || 0
+  })));
   const [newProdAdding, setNewProdAdding] = useState(false);
   const [newProduct, setNewProduct] = useState(null);
   const [newProductWeight, setNewProductWeight] = useState('');
-  const [availableProducts, setAvailableProducts] = useState([
-    { productId: 1, Name: 'Meat', pricePer100g: 0.5 },
-    { productId: 2, Name: 'Poop', pricePer100g: 1.2 },
-    { productId: 3, Name: 'Fish', pricePer100g: 1.3 },
-    { productId: 4, Name: 'Vegetables', pricePer100g: 0.4 }
-  ]);
   const [totalPrice, setTotalPrice] = useState(ration.price);
-
+  const fetchRation = async (petId, weight, activity) => {
+    try {
+      const response = await axios.post(`https://localhost:7108/api/Booking/CreateRation?petId=${petId}&weight=${weight}&activity=${activity}`, { withCredentials: true });
+      setRation(response.data);
+    } catch (error) {
+      console.error('Error fetching ration:', error);
+    }
+  };
+  useEffect(() => {
+    fetchRation( animalInfo.petId, animalInfo.weight * 100, animalInfo.activity)
+  }, []);
+  
   useEffect(() => {
     const calculatedPrice = rationProducts.reduce((total, product) => total + (product.weight * product.pricePer100g / 100), 0);
     setTotalPrice(calculatedPrice);
@@ -26,12 +39,16 @@ function RationCard({ Name, ration, isEditing, editRation, confirmChanges }) {
     setNewProdAdding(!newProdAdding);
   };
 
+  const handleEdit = () => {
+    setIsEditing(!isEditing);
+  };
+
   const handleAddProduct = () => {
     if (newProduct && newProductWeight) {
       const newProductEntry = {
-        productId: newProduct.productId,
-        Name: newProduct.Name,
-        weight: parseFloat(newProductWeight),
+        productId: newProduct.id,
+        name: newProduct.name,
+        weight: Math.round(parseFloat(newProductWeight)), // Округление веса до целого значения
         pricePer100g: newProduct.pricePer100g
       };
       setRationProducts(prevProducts => [...prevProducts, newProductEntry]);
@@ -44,7 +61,7 @@ function RationCard({ Name, ration, isEditing, editRation, confirmChanges }) {
   const handleChangeWeight = (id, weight) => {
     setRationProducts(prevProducts =>
       prevProducts.map(product =>
-        product.productId === id ? { ...product, weight: parseFloat(weight) } : product
+        product.productId === id ? { ...product, weight: Math.round(parseFloat(weight)) } : product // Округление веса до целого значения
       )
     );
   };
@@ -54,43 +71,49 @@ function RationCard({ Name, ration, isEditing, editRation, confirmChanges }) {
   };
 
   const handleConfirmChanges = () => {
-    const updatedRation = {
-      ...ration,
-      products: rationProducts,
-      price: totalPrice
-    };
-    confirmChanges(updatedRation);
+    setRation(prevRation => ({
+      ...prevRation,
+      productInRation: rationProducts.map(product => ({
+      rationId: prevRation.id,
+      productId: product.productId,
+      weight: product.weight
+    })),
+    price: totalPrice}));
+    setIsEditing(false);
   };
 
   return (
     <Card sx={{ maxWidth: 445, mb: 2 }}>
       <CardContent>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="h5">Ration for {Name}</Typography>
-          <IconButton onClick={editRation}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '20px' }}>
+          <Typography variant="h5" sx={{ display: 'flex', justifySelf: 'center', alignSelf: 'center' }}>Ration for {Name}</Typography>
+          <IconButton onClick={handleEdit}>
             <EditIcon />
           </IconButton>
         </Box>
         {!isEditing && (
-          <Box sx={{border: '1px solid black', borderRadius:'5px', padding:'30px 30px'}}>
-            {ration.products.map((product) => (
-              <Box key={product.productId} sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', my: 1 }}>
-                <Typography sx={{ flex: '1 1 40%' }}>{product.Name}</Typography>
+          <Box sx={{ border: '1px solid black', borderRadius: '5px', padding: '30px 30px' }}>
+            {rationProducts.map((product) => (
+              <Box>
+                <Box key={product.productId} sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', my: 1 }}>
+                <Typography sx={{ flex: '1 1 40%' }}>{product.name}</Typography>
                 <Typography sx={{ flex: '1 1 40%' }}>{product.weight} g</Typography>
+                </Box>
+                <Divider/>
               </Box>
             ))}
           </Box>
         )}
         {isEditing && (
-          <Box sx={{border: '1px solid black', borderRadius:'5px', padding:'30px 30px'}}>
+          <Box sx={{ border: '1px solid black', borderRadius: '5px', padding: '30px 30px' }}>
             {rationProducts.map((product) => (
-              <Box key={product.productId} sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
-                <Typography>{product.Name}</Typography>
+              <Box key={product.productId} sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+                <Typography>{product.name}</Typography>
                 <OutlinedInput
                   id="outlined-adornment-weight"
                   endAdornment={<InputAdornment position="end">g</InputAdornment>}
                   aria-describedby="outlined-weight-helper-text"
-                  type='number'
+                  type="number"
                   value={product.weight}
                   onChange={(e) => handleChangeWeight(product.productId, e.target.value)}
                   inputProps={{
@@ -105,7 +128,7 @@ function RationCard({ Name, ration, isEditing, editRation, confirmChanges }) {
             ))}
             {!newProdAdding &&
               <Button onClick={handleOnNewProdAdding} sx={{ display: 'flex', alignItems: 'center', marginTop: 2 }}>
-                <AddCircleOutlineIcon sx={{paddingRight:'30px'}}/>
+                <AddCircleOutlineIcon sx={{ paddingRight: '30px' }} />
                 Add product
               </Button>}
             {newProdAdding &&
@@ -113,7 +136,7 @@ function RationCard({ Name, ration, isEditing, editRation, confirmChanges }) {
                 <Autocomplete
                   disablePortal
                   options={availableProducts}
-                  getOptionLabel={(option) => option.Name}
+                  getOptionLabel={(option) => option.name}
                   value={newProduct}
                   onChange={(event, newValue) => setNewProduct(newValue)}
                   renderInput={(params) => <TextField {...params} label="Select product" />}
@@ -141,7 +164,7 @@ function RationCard({ Name, ration, isEditing, editRation, confirmChanges }) {
             <Button onClick={handleConfirmChanges}>Confirm changes</Button>
           </Box>
         )}
-        <Typography variant="h6" sx={{ marginTop: 2 }}>Price: ${totalPrice.toFixed(2)}</Typography>
+        <Typography variant="h6" sx={{ marginTop: 2 }}>Price per day: ${totalPrice.toFixed(2)}</Typography>
       </CardContent>
     </Card>
   );

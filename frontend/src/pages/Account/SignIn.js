@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Box, Button, TextField, Typography, Paper } from '@mui/material';
+import AuthContext from '../../contexts/AuthProvider';
 
 function SignIn ({ onSwitchToSignUp, handleAuthorized }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSignIn = () => {
-    // Add your sign-in logic here
-    console.log('Sign in', { email, password });
+  const {login} = useContext(AuthContext)
+  const handleLocalSignIn = () => {
+    login(email, password)
+    handleAuthorized()
   };
 
   return (
@@ -32,7 +33,7 @@ function SignIn ({ onSwitchToSignUp, handleAuthorized }) {
         margin="normal"
       />
       <Box sx={{paddingTop:'30px'}}>
-        <Button variant="contained" color="primary" onClick={handleAuthorized} fullWidth >
+        <Button variant="contained" color="primary" onClick={handleLocalSignIn} fullWidth >
           Sign In
         </Button>
       </Box>

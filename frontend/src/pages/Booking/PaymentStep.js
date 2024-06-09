@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
 const PaymentStep = ({ onNext, onPrev }) => {
   return (
@@ -9,7 +9,7 @@ const PaymentStep = ({ onNext, onPrev }) => {
           Payment Step
         </Typography>
         <Typography variant="h6" align="center" sx={{ mt: 2 }}>
-            Redirection to the payment api
+          Redirection to the payment API
         </Typography>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>

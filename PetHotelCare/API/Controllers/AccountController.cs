@@ -125,7 +125,7 @@ namespace PetHotelCare.API.Controllers
         public async Task<UserModel?> GetUser()
         {
             var user = await _userManager.GetUserAsync(User);
-            return user!.Adapt<UserModel?>();
+            return user.Adapt<UserModel?>();
         }
 
         //public async Task<string?> GetRole()

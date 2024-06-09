@@ -17,7 +17,7 @@ function ServiceCard({ service }) {
         </Typography>
         <Box sx={{ border: '1px solid #ccc', padding: 2, borderRadius: 1 }}>
           <Typography variant="body1" align='left' sx={{paddingBottom:'20px'}}>
-            {service.description}
+            <strong>Description:</strong> {service.description}
           </Typography>
           <Typography variant="body1" align='left' >
             <strong>Price:</strong> ${service.price}
