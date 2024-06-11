@@ -10,7 +10,7 @@ import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_URL } from '../../constants';
 
 const MyPets = () => {
   const [pets, setPets] = useState({});
-  
+  const {connectionAPIString} = useContext(AuthContext)
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [currentPet, setCurrentPet] = useState(null);
@@ -23,7 +23,7 @@ const MyPets = () => {
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        const response = await axios.get('https://localhost:7108/api/Pet', { withCredentials: true });
+        const response = await axios.get(`${connectionAPIString}/api/Pet`, { withCredentials: true });
         setPets(response.data.items.reduce((o, x) => ({ ...o, [x.id]: x }), {}));
       } catch (error) {
         console.error('Error fetching pets:', error);
@@ -35,7 +35,7 @@ const MyPets = () => {
 
   const fetchPetTypes = async () => {
     try {
-      const response = await axios.get('https://localhost:7108/api/Breed?page=1', { withCredentials: true });
+      const response = await axios.get(`${connectionAPIString}/api/Breed?page=1`, { withCredentials: true });
       setPetTypes(response.data.items);
     } catch (error) {
       console.error('Error fetching pet types:', error);
@@ -44,7 +44,7 @@ const MyPets = () => {
 
   const fetchTags = async () => {
     try {
-      const response = await axios.get('https://localhost:7108/api/Tag?page=1', { withCredentials: true });
+      const response = await axios.get(`${connectionAPIString}/api/Tag?page=1`, { withCredentials: true });
       setTags(response.data.items);
     } catch (error) {
       console.error('Error fetching tags:', error);
@@ -74,7 +74,7 @@ const MyPets = () => {
 
   const handleAddSave = async (localPet) => {
     try {
-      const response = await axios.post('https://localhost:7108/api/Pet', { ...localPet, userId }, { withCredentials: true });
+      const response = await axios.post(`${connectionAPIString}/api/Pet`, { ...localPet, userId }, { withCredentials: true });
       setPets((prevPets) => ({ ...prevPets, [response.data.id]: response.data }));
     } catch (error) {
       console.error('Error adding pet:', error);
@@ -84,8 +84,8 @@ const MyPets = () => {
 
   const handleEditSave = async (localPet) => {
     try {
-      await axios.put(`https://localhost:7108/api/Pet?id=${localPet.id}`, localPet, { withCredentials: true });
-      const response = await axios.get(`https://localhost:7108/api/Pet/getById?id=${localPet.id}`, { withCredentials: true });
+      await axios.put(`${connectionAPIString}/api/Pet?id=${localPet.id}`, localPet, { withCredentials: true });
+      const response = await axios.get(`${connectionAPIString}/api/Pet/getById?id=${localPet.id}`, { withCredentials: true });
       setPets((prevPets) => {
         const updatedPets = { ...prevPets, [localPet.id]: response.data };
         return updatedPets;
@@ -98,7 +98,7 @@ const MyPets = () => {
 
   const handleDeleteClick = async (petId) => {
     try {
-      await axios.delete(`https://localhost:7108/api/Pet?id=${petId}`, { withCredentials: true });
+      await axios.delete(`${connectionAPIString}/api/Pet?id=${petId}`, { withCredentials: true });
       setPets((prevPets) => {
         const newPets = { ...prevPets };
         delete newPets[petId];

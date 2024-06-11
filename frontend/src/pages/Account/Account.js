@@ -3,7 +3,7 @@ import { Box, Drawer, List, ListItem, ListItemText, Typography } from '@mui/mate
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AuthContext from '../../contexts/AuthProvider';
-import AccountData from './AccountData'; // Подключаем соответствующие компоненты
+import AccountData from './AccountData'; 
 import MyPets from './MyPets';
 import MyBookings from './MyBookings';
 import axios from 'axios';
@@ -14,11 +14,12 @@ function Account() {
   const [userData, setUserData] = useState({ ...user.data });
   const [bookings, setBookings] = useState([]);
   const [avatarFile, setAvatarFile] = useState(null);
-  
+  const {connectionAPIString} = useContext(AuthContext)
   useEffect(() => {
     const getBookings = async () => {
+      
       try {
-        const response = await axios.get('https://localhost:7108/api/Booking', { withCredentials: true });
+        const response = await axios.get(`${connectionAPIString}/api/Booking`, { withCredentials: true });
         setBookings(response.data.items);
       } catch (error) {
         console.error('Error fetching bookings:', error);
@@ -26,7 +27,7 @@ function Account() {
     };
 
     getBookings();
-  }, []);
+  }, [connectionAPIString]);
 
   const buttons = [
     { label: 'Home', path: '/' },

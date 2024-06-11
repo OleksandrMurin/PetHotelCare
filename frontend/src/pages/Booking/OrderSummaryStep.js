@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Box, Button, Typography, List, ListItem, ListItemText, Divider } from '@mui/material';
+import AuthContext from '../../contexts/AuthProvider';
 
 const OrderSummaryStep = ({ roomPrice, rationPrice, selectedServicesB, onPrev, onNext }) => {
   const [services, setServices] = useState([]);
   const [servicePrices, setServicePrices] = useState([]);
   const [selectedServiceDetails, setSelectedServiceDetails] = useState([]);
-
+  const {connectionAPIString} = useContext(AuthContext)
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get('https://localhost:7108/api/PetService?page=1', { withCredentials: true });
+        const response = await axios.get(`${connectionAPIString}/api/PetService?page=1`, { withCredentials: true });
         setServices(response.data.items);
       } catch (error) {
         console.error('Error fetching services:', error);

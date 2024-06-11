@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { Navigate  } from 'react-router-dom'
+
 import Header from '../../components/Header'
 import HeroSection from '../../components/HeroSection'
-import { Alert, Box } from '@mui/material'
+import {  Box } from '@mui/material'
 import Footer from '../../components/Footer';
 import AboutUsDescription from './AboutUsDescription';
 import AboutUsEmployees from './AboutUsEmployees';
@@ -16,6 +16,7 @@ function AboutUs() {
   const description = 'Here you can find detailed information about us'
   const [authDialogType, setAuthDialogType] = useState(null);
   const {isAuthenticated} = useContext(AuthContext)
+  
   const buttons = [
     { label: 'Home', path: '/' },
     { label: 'Our Rooms', path: '/rooms' },

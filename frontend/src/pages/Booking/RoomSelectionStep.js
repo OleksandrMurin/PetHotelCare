@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Box, Select, MenuItem, Button, Typography, FormControl, InputLabel, TextField } from '@mui/material';
 import RoomList from './RoomList';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DateRangePicker } from '@mui/x-date-pickers-pro';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 import axios from 'axios';
+import AuthContext from '../../contexts/AuthProvider';
 
 const RoomSelectionStep = ({ onNext, onPrev, roomsData, roomSelection }) => {
   const [dateRange, setDateRange] = useState(roomSelection.dateRange || [null, null]);
@@ -13,7 +14,7 @@ const RoomSelectionStep = ({ onNext, onPrev, roomsData, roomSelection }) => {
   const [showRooms, setShowRooms] = useState(!!selectedRoom);
   const [roomCategories, setRoomCategories] = useState([]);
   const [filteredRooms, setFilteredRooms] = useState([]);
-
+  const {connectionAPIString} = useContext(AuthContext)
   useEffect(() => {
     setDateRange(roomSelection.dateRange || [null, null]);
     setRoomCategory(roomSelection.roomCategory || '');
@@ -24,7 +25,7 @@ const RoomSelectionStep = ({ onNext, onPrev, roomsData, roomSelection }) => {
   useEffect(() => {
     const fetchRoomCategories = async () => {
       try {
-        const response = await axios.get('https://localhost:7108/api/RoomType?page=1');
+        const response = await axios.get(`${connectionAPIString}/api/RoomType?page=1`);
         setRoomCategories(response.data.items);
       } catch (error) {
         console.error('Error fetching room categories:', error);
@@ -45,7 +46,7 @@ const RoomSelectionStep = ({ onNext, onPrev, roomsData, roomSelection }) => {
   const handleSearchRooms = async () => {
     if (dateRange[0] && dateRange[1] && roomCategory) {
       try {
-        const response = await axios.get('https://localhost:7108/api/Room?page=1');
+        const response = await axios.get(`${connectionAPIString}/api/Room?page=1`);
         const allRooms = response.data.items;
         const filtered = allRooms.filter(room => room.roomTypeId === roomCategory.toString());
         setFilteredRooms(filtered);

@@ -48,7 +48,7 @@ const AccountData = ({ userData, setUserData, avatarFile, setAvatarFile }) => {
   // const handleLogout = async () => {
   //   try {
   //     console.log('Attempting to log out...');
-  //     const response = await axios.delete('https://localhost:7108/api/Account/Logout', {}, { withCredentials: true });
+  //     const response = await axios.delete('${connectionAPIString}/api/Account/Logout', {}, { withCredentials: true });
   //     console.log('Logout response:', response);
   //     // Перенаправляем пользователя на главную страницу после разлогинивания
   //     window.location.href = '/';

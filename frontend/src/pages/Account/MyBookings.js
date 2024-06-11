@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Card, CardContent, CardActions, Typography, Button } from '@mui/material';
 import axios from 'axios';
-
+import AuthContext from '../../contexts/AuthProvider';
 const MyBookings = ({ bookingsData, setBookings }) => {
+  const {connectionAPIString} = useContext(AuthContext)
   const handleDeleteClick = async (bookingId) => {
     try {
-      await axios.delete(`https://localhost:7108/api/Booking?bookingId=${bookingId}`, { withCredentials: true });
-      const response = await axios.get('https://localhost:7108/api/Booking', { withCredentials: true });
+      await axios.delete(`${connectionAPIString}/api/Booking?bookingId=${bookingId}`, { withCredentials: true });
+      const response = await axios.get(`${connectionAPIString}/api/Booking`, { withCredentials: true });
         setBookings(response.data.items);
     } catch (error) {
       console.error('Error deleting booking:', error);

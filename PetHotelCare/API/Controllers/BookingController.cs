@@ -41,7 +41,7 @@ namespace PetHotelCare.API.Controllers
 
             booking.Ration.ProductsInRations = request.Ration.ProductsInRation.Select(x => new ProductsInRation { ProductId = x.ProductId }).ToList();
 
-            booking.Price = CalculateTotalPrice(request)[3];// ПРОВЕРИТЬ ЭТО
+            booking.Price = CalculateTotalPrice(request);// ПРОВЕРИТЬ ЭТО
             if (booking.Price == -1) return NotFound();
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
@@ -221,7 +221,7 @@ namespace PetHotelCare.API.Controllers
 
             return optimalProducts;
         }
-        private double[] CalculateTotalPrice(BookingRequest request)
+        private double CalculateTotalPrice(BookingRequest request)
         {
             double roomTotal = 0;
             int stayDuration = request.CheckOutDate.DayNumber - request.CheckInDate.DayNumber;
@@ -241,7 +241,7 @@ namespace PetHotelCare.API.Controllers
             }
 
             double totalPrice = roomTotal + servicesTotal + request.Ration.Price;
-            return [roomTotal, stayDuration, servicesTotal, totalPrice];
+            return totalPrice;
         }
     }
 }

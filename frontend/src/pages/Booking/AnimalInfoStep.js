@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Box, Typography, FormControl, InputLabel, Select, MenuItem, TextField, Button } from '@mui/material';
 import axios from 'axios';
+import AuthContext from '../../contexts/AuthProvider';
 
 const AnimalInfoStep = ({ onNext, animalOptions, animalInfo }) => {
   const [petId, setPetId] = useState(animalInfo.petId || '');
@@ -8,12 +9,13 @@ const AnimalInfoStep = ({ onNext, animalOptions, animalInfo }) => {
   const [activity, setActivity] = useState(animalInfo.activity || '');
   const [weight, setWeight] = useState(animalInfo.weight || '');
   const [activityOptions, setActivityOptions] = useState([]);
+  const {connectionAPIString} = useContext(AuthContext)
 
   useEffect(() => {
     // Функция для получения уникальных значений активности
     const fetchActivities = async () => {
       try {
-        const response = await axios.get('https://localhost:7108/api/Diet?page=1', { withCredentials: true });
+        const response = await axios.get(`${connectionAPIString}/api/Diet?page=1`, { withCredentials: true });
         const diets = response.data.items;
         // Извлекаем уникальные значения активности
         const activities = [...new Set(diets.map(diet => diet.activity))];

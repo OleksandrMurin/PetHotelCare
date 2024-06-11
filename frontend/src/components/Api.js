@@ -1,4 +1,4 @@
-export const baseUrl = 'https://localhost:7108/api/'
+export const baseUrl = '${connectionAPIString}/api/'
 
 export const sendRequest = async (url, method, {data = null, params = null}) => {
 

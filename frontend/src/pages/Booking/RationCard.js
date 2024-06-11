@@ -1,13 +1,14 @@
 import { Box, Button, Card, CardContent, IconButton, InputAdornment, OutlinedInput, TextField, Typography, Autocomplete, Divider } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import axios from 'axios';
+import AuthContext from '../../contexts/AuthProvider';
 
 function RationCard({ Name, ration, animalInfo, setRation, availableProducts }) {
   const [isEditing, setIsEditing] = useState(false);
-  
+  const {connectionAPIString} = useContext(AuthContext)
   const [rationProducts, setRationProducts] = useState(ration.productInRation.map(product => ({
     productId: product.productId,
     weight: Math.round(product.weight), 
@@ -20,7 +21,7 @@ function RationCard({ Name, ration, animalInfo, setRation, availableProducts }) 
   const [totalPrice, setTotalPrice] = useState(ration.price);
   const fetchRation = async (petId, weight, activity) => {
     try {
-      const response = await axios.post(`https://localhost:7108/api/Booking/CreateRation?petId=${petId}&weight=${weight}&activity=${activity}`, { withCredentials: true });
+      const response = await axios.post(`${connectionAPIString}/api/Booking/CreateRation?petId=${petId}&weight=${weight}&activity=${activity}`, { withCredentials: true });
       setRation(response.data);
     } catch (error) {
       console.error('Error fetching ration:', error);

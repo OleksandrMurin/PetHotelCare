@@ -9,6 +9,7 @@ import axios from 'axios';
 import AuthDialog from '../../components/AuthDialog';
 
 function OurRooms() {
+  const {connectionAPIString} = useContext(AuthContext)
   const imgLink = 'https://i.pinimg.com/originals/8f/b2/b6/8fb2b6abb857e1b07d40ea6c3cb7dd5a.jpg';
   const heading = 'Our Rooms';
   const description = 'Explore our rooms and choose the best for your pet';
@@ -26,8 +27,8 @@ function OurRooms() {
 
   const fetchCategoriesAndRooms = useCallback(async () => {
     try {
-      const categoriesResponse = await axios.get('https://localhost:7108/api/RoomType?page=1', { withCredentials: true });
-      const roomsResponse = await axios.get('https://localhost:7108/api/Room?page=1', { withCredentials: true });
+      const categoriesResponse = await axios.get(`${connectionAPIString}/api/RoomType?page=1`, { withCredentials: true });
+      const roomsResponse = await axios.get(`${connectionAPIString}/api/Room?page=1`, { withCredentials: true });
 
       setCategories(categoriesResponse.data.items);
       setRooms(roomsResponse.data.items);

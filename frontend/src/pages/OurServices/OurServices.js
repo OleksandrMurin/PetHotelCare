@@ -16,7 +16,7 @@ function OurServices() {
   const heading = 'Our Services';
   const description = 'Explore our services list and choose the ones your pet really needs';
   const [authDialogType, setAuthDialogType] = useState(null);
-
+  const {connectionAPIString} = useContext(AuthContext)
   const { isAuthenticated } = useContext(AuthContext);
   const buttons = [
     { label: 'Home', path: '/' },
@@ -34,7 +34,7 @@ function OurServices() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const servicesResponse = await axios.get('https://localhost:7108/api/PetService?page=1');
+        const servicesResponse = await axios.get(`${connectionAPIString}/api/PetService?page=1`);
         setServices(servicesResponse.data.items);
       } catch (error) {
         console.error('Error fetching data:', error);

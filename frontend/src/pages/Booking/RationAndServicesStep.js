@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Box, Typography, Button } from '@mui/material';
 import RationCard from './RationCard';
 import MultipleSelectChip from './MultipleSelectChip'; 
+import AuthContext from '../../contexts/AuthProvider';
 
 function RationAndServicesStep({ ration, Name, animalInfo, selectedServicesB, setSelectedServicesB, availableProducts, setRation, onNext, onPrev }) {
   const [services, setServices] = useState([]);
+  const {connectionAPIString} = useContext(AuthContext)
   // const [selectedServices, setSelectedServices] = useState(selectedServicesB);
   // console.log('Services in RationStep',services)
   // console.log('selectedServices in RationStep',selectedServices)
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get('https://localhost:7108/api/PetService?page=1', { withCredentials: true });
+        const response = await axios.get(`${connectionAPIString}/api/PetService?page=1`, { withCredentials: true });
         setServices(response.data.items);
       } catch (error) {
         console.error('Error fetching services:', error);

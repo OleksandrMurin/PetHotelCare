@@ -4,7 +4,6 @@ import { Box, Container, Step, StepLabel, Stepper } from '@mui/material'
 import Footer from '../../components/Footer';
 import AnimalInfoStep from './AnimalInfoStep';
 import RoomSelectionStep from './RoomSelectionStep';
-import RationCard from './RationCard';
 import RationAndServicesStep from './RationAndServicesStep';
 import OrderSummaryStep from './OrderSummaryStep';
 import PaymentStep from './PaymentStep';
@@ -13,6 +12,7 @@ import AuthContext from '../../contexts/AuthProvider';
 import axios from 'axios';
 
 function Booking() {
+  const {connectionAPIString} = useContext(AuthContext)
   const [step, setStep] = useState(0);
   const [animalInfo, setAnimalInfo] = useState({});
   const [roomTotalPrice, setRoomTotalPrice] = useState(null);
@@ -37,7 +37,7 @@ function Booking() {
   useEffect(() => {
     const fetchAnimals = async () => {
       try {
-        const response = await axios.get('https://localhost:7108/api/Pet', { withCredentials: true });
+        const response = await axios.get(`${connectionAPIString}/api/Pet`, { withCredentials: true });
         setAnimalOptions(response.data.items.map(item => ({
           id: item.id,
           label: item.name,
@@ -54,7 +54,7 @@ function Booking() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://localhost:7108/api/Product?page=1', { withCredentials: true });
+        const response = await axios.get(`${connectionAPIString}/api/Product?page=1`, { withCredentials: true });
         setAvailableProducts(response.data.items);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -66,7 +66,7 @@ function Booking() {
 
   const fetchRation = async (petId, weight, activity) => {
     try {
-      const response = await axios.post(`https://localhost:7108/api/Booking/CreateRation?petId=${petId}&weight=${weight}&activity=${activity}`, { withCredentials: true });
+      const response = await axios.post(`${connectionAPIString}/api/Booking/CreateRation?petId=${petId}&weight=${weight}&activity=${activity}`, { withCredentials: true });
       setRation(response.data);
     } catch (error) {
       console.error('Error fetching ration:', error);
@@ -77,7 +77,7 @@ function Booking() {
     const fetchRoomType = async () => {
       if (roomSelection.roomCategory) {
         try {
-          const response = await axios.get(`https://localhost:7108/api/RoomType/getById?id=${roomSelection.roomCategory}`);
+          const response = await axios.get(`${connectionAPIString}/api/RoomType/getById?id=${roomSelection.roomCategory}`);
           setRoomType(response.data);
         } catch (error) {
           console.error('Error fetching room type:', error);
@@ -122,7 +122,7 @@ function Booking() {
     };
     console.log('bookingData',bookingData)
     try {
-      const response = await axios.post('https://localhost:7108/api/Booking', bookingData, { withCredentials: true });
+      const response = await axios.post(`${connectionAPIString}/api/Booking`, bookingData, { withCredentials: true });
       console.log('Booking created:', response.data);
     } catch (error) {
       console.error('Error creating booking:', error);

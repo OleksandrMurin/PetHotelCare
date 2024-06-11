@@ -11,7 +11,7 @@ function AnimalCard({ animalId }) {
     // Используем useEffect для загрузки данных о животном из API
     useEffect(() => {
         // URL для запроса данных о животном
-        const url = `https://localhost:7108/api/Pet/getById?id=${animalId}`;
+        const url = `${connectionAPIString}/api/Pet/getById?id=${animalId}`;
 
         // Отправляем запрос к API
         fetch(url)
@@ -49,7 +49,7 @@ function AnimalCard({ animalId }) {
     // Функция для отправки данных на сервер
     const handleSave = () => {
         // URL для отправки данных на сервер
-        const url = `https://localhost:7108/api/Pet?id=${animalId}`;
+        const url = `${connectionAPIString}/api/Pet?id=${animalId}`;
 
         // Отправляем PUT-запрос на сервер
         fetch(url, {

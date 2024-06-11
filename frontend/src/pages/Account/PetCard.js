@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Card, CardContent, CardActions, Button, Avatar, Typography } from '@mui/material';
 import axios from 'axios';
+import AuthContext from '../../contexts/AuthProvider';
 
 const PetCard = ({ pet, handleEditClick, handleDeleteClick, tags }) => {
   const [breedName, setBreedName] = useState('');
-
+  const {connectionAPIString} = useContext(AuthContext)
   useEffect(() => {
     if (pet.breedId) {
       fetchBreedName(pet.breedId);
@@ -13,7 +14,7 @@ const PetCard = ({ pet, handleEditClick, handleDeleteClick, tags }) => {
 
   const fetchBreedName = async (breedId) => {
     try {
-      const response = await axios.get(`https://localhost:7108/api/Breed/getById?id=${breedId}`, { withCredentials: true });
+      const response = await axios.get(`${connectionAPIString}/api/Breed/getById?id=${breedId}`, { withCredentials: true });
       setBreedName(response.data.name);
     } catch (error) {
       console.error('Error fetching breed name:', error);
